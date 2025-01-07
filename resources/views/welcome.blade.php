@@ -6,7 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @env('vercel')
+        <script src="https://cdn.tailwindcss.com"></script>
+    @endenv
+
+    @env('local')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endenv
 </head>
 <body>
 
