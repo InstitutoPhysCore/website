@@ -1,5 +1,7 @@
 {
     "version": 2,
+    "installCommand": "npm install vite laravel-vite-plugin",
+    "buildCommand": "npm run build",
     "builds": [
         { "src": "/server.php", "use": "vercel-php@0.6.0" }
     ],
