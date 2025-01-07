@@ -11,6 +11,7 @@
 <body>
 
     <x-navbar/>
+    <x-footer/>
 
 </body>
 </html>
