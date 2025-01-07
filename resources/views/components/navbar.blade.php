@@ -1,4 +1,4 @@
-<nav class="bg-zinc-900 fixed w-full z-20 top-0 start-0">
+<nav class="bg-zinc-900">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
         <x-navbar.title/>
         
@@ -12,7 +12,13 @@
                     <x-navbar.dropdown.item href="/oi">Link</x-navbar.dropdown.item>
                 </x-navbar.dropdown>
 
-                <x-navbar.dropdown.menu.button>Projetos</x-navbar.dropdown.menu.button>
+                <x-navbar.dropdown.menu.button>Ações</x-navbar.dropdown.menu.button>
+
+                <x-navbar.dropdown title="Ensino">
+                    <x-navbar.dropdown.item href="/oi">Link</x-navbar.dropdown.item>
+                </x-navbar.dropdown>
+
+                <x-navbar.link href="">Softwares</x-navbar.link>
             </ul>
 
             <div class="md:hidden transition">
