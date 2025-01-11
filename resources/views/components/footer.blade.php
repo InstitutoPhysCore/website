@@ -10,6 +10,9 @@
 			</div>
 			<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
 				<x-footer.columns.sobre/>
+				<x-footer.columns.acoes/>
+				<x-footer.columns.ensino/>
+				<x-footer.columns.mais/>
 			</div>
 		</div>
 		<div class="mt-12 border-t border-zinc-700 pt-6">

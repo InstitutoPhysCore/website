@@ -9,7 +9,7 @@
 	</svg>
 </button>
 
-<div id="{{ $title }}Dropdown" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+<div id="{{ $title }}Dropdown" class="z-10 hidden transition-opacity duration-300 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
 	<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
 		{{ $slot }}
 	</ul>

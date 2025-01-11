@@ -5,20 +5,33 @@
         <x-navbar.mobile/>
 
         <div id="navbarItems" class="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1">
-            <ul class="flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-zinc-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-zinc-900">
-                <x-navbar.link href="">Nome</x-navbar.link>
+            <ul class="flex flex-col p-6 md:p-0 mt-4 rounded-lg bg-zinc-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-zinc-900">
+                <x-navbar.link href="">Página Inicial</x-navbar.link>
 
                 <x-navbar.dropdown title="Sobre">
-                    <x-navbar.dropdown.item href="/oi">Link</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Quem somos?</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">História</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Objetivos</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Equipe</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Diretoria</x-navbar.dropdown.item>
                 </x-navbar.dropdown>
 
-                <x-navbar.dropdown.menu.button>Ações</x-navbar.dropdown.menu.button>
+                <x-navbar.link href="">Notícias</x-navbar.link>
+
+                <x-navbar.dropdown title="Ações">
+                    <x-navbar.dropdown.item href="">Apresentações</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Projetos</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Ações Sociais</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Iniciação Científica</x-navbar.dropdown.item>
+                </x-navbar.dropdown>
 
                 <x-navbar.dropdown title="Ensino">
-                    <x-navbar.dropdown.item href="/oi">Link</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Cursos</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Apostilas</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="">Biblioteca</x-navbar.dropdown.item>
                 </x-navbar.dropdown>
 
-                <x-navbar.link href="">Softwares</x-navbar.link>
+                <x-navbar.link href="#softwares">Softwares</x-navbar.link>
             </ul>
 
             <div class="md:hidden transition">
@@ -49,7 +62,7 @@
 
     </div>
 
-    <x-navbar.dropdown.menu name="Projetos">
+    <x-navbar.dropdown.menu name="Ações">
         <x-navbar.dropdown.menu.card title="Copos">Informação</x-navbar.dropdown.menu.card>
     </x-navbar.dropdown.menu>
 
