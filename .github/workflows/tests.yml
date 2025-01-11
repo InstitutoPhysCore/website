@@ -24,24 +24,24 @@ jobs:
     name: PHP ${{ matrix.php }}
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup PHP
+      - name: instalar PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
           coverage: none
 
-      - name: Install Composer dependencies
+      - name: Instalar Dependências
         run: composer install --prefer-dist --no-interaction --no-progress
 
-      - name: Copy environment file
+      - name: Copiar Configurações
         run: cp .env.example .env
 
-      - name: Generate app key
+      - name: Gerar Chave
         run: php artisan key:generate
 
-      - name: Execute tests
-        run: vendor/bin/phpunit
+      - name: Executar Testes
+        run: vendor/bin/pest
