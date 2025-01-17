@@ -31,7 +31,7 @@
         </div>
     </section>
     <div class="hidden mx-auto pr-3 lg:flex justify-end max-w-screen-xl -mt-64 -mb-16">
-        <img src="{{ asset('images/astronauta.webp') }}" class="h-96">
+        <img src="{{ asset('images/astronauta.webp') }}" class="h-96 transition hover:scale-105 hover:rotate-6">
     </div>
 
     <section class="">
@@ -86,7 +86,7 @@
             <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Artigos </h2>
             <h6 class="text-center text-xl mt-2">Achamos que você possa achar interessante esses artigos</h6>
             <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-                <a href="/"><blockquote class="rounded-lg shadow transition bg-neutral-700 hover:bg-neutral-600/75 hover:scale-105 hover:shadow-xl">
+                <a href="/"><blockquote class="rounded-lg shadow transition hover:bg-neutral-100/75 hover:scale-105 hover:shadow-xl">
                     <div class="rounded-t-lg h-32 w-full bg-cover" style="background-image: url({{ asset('images/cosmos.webp') }});"></div>
                     <div class="p-8">
                         <p class="text-lg font-bold">Lorem ipsum dolor sit amet.</p>

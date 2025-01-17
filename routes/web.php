@@ -8,9 +8,17 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/pagina', function () {
-    return view('page');
+Route::get('/artigos', function () {
+    return view('artigos');
 })->name('page');
+
+Route::get('/equipe', function () {
+    return view('equipe');
+})->name('equipe');
+
+Route::get('/equipe/membro', function () {
+    return view('equipe.mockup');
+})->name('membro');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -16,6 +16,8 @@
                     <x-navbar.dropdown.item href="">Diretoria</x-navbar.dropdown.item>
                 </x-navbar.dropdown>
 
+                <x-navbar.link href="">Artigos</x-navbar.link>
+
                 <x-navbar.link href="">Notícias</x-navbar.link>
 
                 <x-navbar.dropdown title="Ações">
