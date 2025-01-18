@@ -1,31 +1,16 @@
 {
     "version": 2,
-    "installCommand": "npm install vite laravel-vite-plugin",
-    "buildCommand": "npm run build",
-    "builds": [
-        { "src": "/server.php", "use": "vercel-php@0.6.0" }
-    ],
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.5.2",
+            "memory": 1024,
+			"maxDuration": 10
+        }
+    },
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/server.php"
+            "dest": "/api/index.php"
         }
-    ],
-    "env": {
-        "APP_ENV": "vercel",
-        "APP_DEBUG": "true",
-        "APP_URL": "https://physcore.vercel.app",
-        "APP_KEY": "base64:voVpQbb5Dms95u7XsKFcLnph6KqhQphSd+awGOA7Rog=",
-
-        "APP_CONFIG_CACHE": "/tmp/config.php",
-        "APP_EVENTS_CACHE": "/tmp/events.php",
-        "APP_PACKAGES_CACHE": "/tmp/packages.php",
-        "APP_ROUTES_CACHE": "/tmp/routes.php",
-        "APP_SERVICES_CACHE": "/tmp/services.php",
-        "VIEW_COMPILED_PATH": "/tmp",
-
-        "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie"
-    }
+    ]
 }

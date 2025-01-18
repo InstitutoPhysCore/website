@@ -60,7 +60,7 @@
         <div class="mx-auto max-w-screen-xl px-6 py-16 dark:text-white">
             <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Quem nós somos? </h2>
             <h3 class="text-center text-xl mt-2">Uma breve introdução ao nosso projeto</h6>
-            <iframe class="mt-12 w-full aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/-6cH0Dwi-gI"></iframe>
+            <iframe class="mt-12 w-full aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/"></iframe>
         </div>
     </section>
 
