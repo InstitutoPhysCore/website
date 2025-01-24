@@ -1,0 +1,1 @@
+<h6 {{ $attributes->merge(['class' => 'text-xl mt-2'])}}>{{ $slot }}</h6>

@@ -1,0 +1,1 @@
+<h1 class="text-5xl font-extrabold sm:text-7xl text-white"> PhysCore </h1>

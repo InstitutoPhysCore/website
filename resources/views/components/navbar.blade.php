@@ -1,13 +1,18 @@
 <nav class="bg-zinc-900">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+        
+        <!-- Título Navbar -->
         <x-navbar.title/>
         
+        <!-- Dropdown Navbar Mobile -->
         <x-navbar.mobile/>
 
         <div id="navbarItems" class="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1">
             <ul class="flex flex-col p-6 md:p-0 mt-4 rounded-lg bg-zinc-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-zinc-900">
+                <!-- Link Página Principal -->
                 <x-navbar.link href="">Página Inicial</x-navbar.link>
 
+                <!-- Dropdown Sobre -->
                 <x-navbar.dropdown title="Sobre">
                     <x-navbar.dropdown.item href="">Quem somos?</x-navbar.dropdown.item>
                     <x-navbar.dropdown.item href="">História</x-navbar.dropdown.item>
@@ -16,10 +21,13 @@
                     <x-navbar.dropdown.item href="">Diretoria</x-navbar.dropdown.item>
                 </x-navbar.dropdown>
 
+                <!-- Link Artigos -->
                 <x-navbar.link href="">Artigos</x-navbar.link>
 
+                <!-- Link Notícias -->
                 <x-navbar.link href="">Notícias</x-navbar.link>
 
+                <!-- Dropdown Ações -->
                 <x-navbar.dropdown title="Ações">
                     <x-navbar.dropdown.item href="">Apresentações</x-navbar.dropdown.item>
                     <x-navbar.dropdown.item href="">Projetos</x-navbar.dropdown.item>
@@ -27,47 +35,25 @@
                     <x-navbar.dropdown.item href="">Iniciação Científica</x-navbar.dropdown.item>
                 </x-navbar.dropdown>
 
+                <!-- Dropdown Ensino -->
                 <x-navbar.dropdown title="Ensino">
                     <x-navbar.dropdown.item href="">Cursos</x-navbar.dropdown.item>
                     <x-navbar.dropdown.item href="">Apostilas</x-navbar.dropdown.item>
                     <x-navbar.dropdown.item href="">Biblioteca</x-navbar.dropdown.item>
                 </x-navbar.dropdown>
 
+                <!-- Dropdown Softwares -->
                 <x-navbar.link href="#softwares">Softwares</x-navbar.link>
             </ul>
 
-            <div class="md:hidden transition">
-                <div class="flex p-4 rounded-lg justify-between items-center bg-zinc-800 mt-4">
-                    <a href="#" class="block py-2 px-3 text-gray-100 rounded hover:bg-violet-900" aria-current="page">
-                        <div class="flex items-center justify-around">
-                                <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                                    <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-                                </div>
-                            <span class="text-gray-100 ml-3">Usuário</span>
-                        </div>
-                    </a>
-
-                    <form class="px-3">
-                        <button class="text-gray-100 text-lg hover:text-violet-600">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
+            <!-- Menu Usuário Mobile -->
+            <x-navbar.user-mobile/>
         </div>
 
-        <div id="navbarUserItem" class="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1">
-            <x-navbar.user/>
-        </div>
-
-
+        <!-- Menu Usuário Desktop -->
+        <x-navbar.user/>
 
     </div>
-
-    <x-navbar.dropdown.menu name="Ações">
-        <x-navbar.dropdown.menu.card title="Copos">Informação</x-navbar.dropdown.menu.card>
-    </x-navbar.dropdown.menu>
-
 </nav>
 
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
