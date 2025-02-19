@@ -1,3 +1,4 @@
+@props(['bg' => null])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +8,14 @@
     <title>PhysCore</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Alpine Plugins -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
- 
-    <!-- Alpine Core -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </head>
 
-<body>
+<body class="bg-fixed"
+@if($bg != null)
+    style="background-image: url({{ asset($bg) }});"
+@endif
+>
 
     <!-- Navbar -->
     <x-navbar/>

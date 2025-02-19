@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PhysCore</title>
+    <title>Document</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
 </head>
-
 <body>
+    <x-card.embreve/>
+    <form action="{{ route('image.upload') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="image">
+        <button type="submit">Upload</button>
+    </form>
 
-    <!-- Navbar -->
-    <x-painel.sidebar/>
-
-    <!-- Conteúdo -->
-    <main>
-        {{ $slot }}
-    </main>
-    
-    <!-- Footer -->
 
 </body>
 </html>

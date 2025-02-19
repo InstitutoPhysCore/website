@@ -2,7 +2,7 @@
     <section class="bg-fixed" style="background-image: url({{ asset('images/cosmos.webp') }});">
         <div class="mx-auto max-w-screen-xl px-6 py-32">
             <div class="text-left">
-                <x-text.title>PhysCore</x-text.title>
+                <x-text.title class="text-white">PhysCore</x-text.title>
                 <x-text.subtitle class="text-violet-600">Democratizando a ciência</x-text.subtitle>
                 <x-text.desc class="text-white">Seu portal para artigos, apostilas, vídeos e muito mais!</x-text.desc>
                 <div class="mt-8 gap-4">
@@ -17,15 +17,7 @@
 
     <!-- Container Noticias -->
     <x-container.primary id="news">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 h-96">
-            <x-card.home-news class="col-span-2 lg:row-span-2"/>
-
-            <x-card.home-news class="col-span-2 lg:row-span-1"/>
-
-            <x-card.home-news/>
-
-            <x-card.home-news/>
-        </div>
+        <livewire:HomeNoticias lazy/>
     </x-container.primary>
 
     <!-- Container Breve Introdução -->
@@ -53,21 +45,13 @@
         </div>
     </section>
 
-    <x-container.primary>
+    <x-container.primary id="artigos">
         <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Artigos </h2>
         <h6 class="text-center text-xl mt-2">Achamos que você possa achar interessante esses artigos</h6>
-        <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-            <a href="/"><blockquote class="rounded-lg shadow transition hover:bg-neutral-100/75 hover:scale-105 hover:shadow-xl">
-                <div class="rounded-t-lg h-32 w-full bg-cover" style="background-image: url({{ asset('images/cosmos.webp') }});"></div>
-                <div class="p-8">
-                    <p class="text-lg font-bold">Lorem ipsum dolor sit amet.</p>
-                    <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend.</p>
-                </div>
-            </blockquote></a>
-        </div>
+        <livewire:HomeArtigos lazy />
         <div class="mt-12 gap-4 text-center">
-            <x-button.link class="shadow-lg" href="">Ver Mais Artigos</x-button.link>
-        </div>
+            <x-button.link class="shadow-lg" href="{{ route('artigos.index') }}">Ver Mais Artigos</x-button.link>
+        </div>  
     </x-container.primary>
 
     <section id="softwares" class="bg-zinc-900 text-gray-100">
@@ -92,25 +76,12 @@
         <div class="mx-auto max-w-screen-xl px-6 py-16">
             <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Apostilas </h2>
             <h6 class="text-center text-xl mt-2">Acesso rápido a nossas apostilas</h6>
-            <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-                <a href="/"><blockquote class="rounded-lg shadow transition hover:bg-neutral-100/75 hover:scale-105 hover:shadow-xl">
-                    <div class="rounded-t-lg h-32 w-full bg-cover" style="background-image: url({{ asset('images/cosmos.webp') }});"></div>
-                    <div class="p-8">
-                        <p class="text-lg font-bold">Apostilas Física</p>
-                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend.</p>
-                    </div>
-                </blockquote></a>
-                <a href="/"><blockquote class="rounded-lg shadow transition hover:bg-neutral-100/75 hover:scale-105 hover:shadow-xl">
-                    <div class="rounded-t-lg h-32 w-full bg-cover" style="background-image: url({{ asset('images/cosmos.webp') }});"></div>
-                    <div class="p-8">
-                        <p class="text-lg font-bold">Apostilas Quimica</p>
-                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend.</p>
-                    </div>
-                </blockquote></a>
-            </div>
+            <x-card.embreve/>
+            {{--
             <div class="mt-12 gap-4 text-center">
                 <x-button.link class="shadow-lg" href="">Ver Todas Apostilas</x-button.link>
             </div>
+            --}}
         </div>
     </section>
 </x-page-layout>

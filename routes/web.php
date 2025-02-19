@@ -9,9 +9,21 @@ use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\ApostilaController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\BibliotecaController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\PainelController;
 
 Route::view('/', 'home')->name('home');
 
+Route::view('/dev', 'playground')->name('dev');
+
+// Rotas do Painel de Controle
+Route::controller(PainelController::class)->group(function () {
+    Route::get('/painel', 'index');
+});
+
+Route::post('/dev', [ImageController::class, 'upload'])->name('image.upload');
+
+// Rotas de Páginas Estáticas
 Route::view('/quemsomos', 'static.quemsomos')->name('page.quemsomos');                      // Página Quem Somos
 Route::view('/objetivos', 'static.objetivos')->name('page.objetivos');                      // Página de Objetivos
 Route::view('/apresentacoes', 'static.apresentacoes')->name('page.apresentacoes');          // Página de Apresentações

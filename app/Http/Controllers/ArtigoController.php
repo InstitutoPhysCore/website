@@ -14,7 +14,7 @@ class ArtigoController extends Controller
     }
 
     public function show(Artigo $artigo) {
-        return view('artigos.show', $artigo);
+        return view('artigos.show', ['artigo' => $artigo]);
     }
 
     public function create() {

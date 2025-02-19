@@ -7,7 +7,7 @@
         <!-- Dropdown Navbar Mobile -->
         <x-navbar.mobile/>
 
-        <div x-show="toggle" x-transition id="navbarItems" class="items-center justify-between font-medium w-full lg:flex lg:w-auto lg:order-1">
+        <div x-show="toggle" id="navbarItems" class="items-center justify-between font-medium w-full lg:flex lg:w-auto lg:order-1">
             <ul class="flex flex-col p-6 lg:p-0 mt-4 rounded-lg bg-zinc-800 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-zinc-900">
                 <!-- Link Página Principal -->
                 <x-navbar.link href="/">Página Inicial</x-navbar.link>
