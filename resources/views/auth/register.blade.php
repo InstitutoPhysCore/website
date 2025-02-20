@@ -1,52 +1,46 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<x-auth-layout>
+    <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <!-- Container Apresentação Desktop -->
+        <section class="relative flex h-32 items-end bg-violet-900 lg:col-span-5 lg:h-full xl:col-span-6">
+            <div class="hidden lg:relative lg:block lg:p-12">
+                <img class="h-32" src="{{ asset('images/astronauta.webp') }}"/>
+                <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl"> Bem-vindo ao Instituto PhysCore! </h2>
+                <p class="mt-4 leading-relaxed text-white/90"> Crie uma conta, é de graça!  </p>
+            </div>
+        </section>
+
+        <main class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
+            <div class="max-w-xl lg:max-w-3xl">
+
+                <!-- Container Apresentação Mobile -->
+                <div class="relative -mt-16 block lg:hidden">
+                    <a class="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20 dark:bg-gray-900" href="#">
+                        <span class="sr-only">Home</span>
+                        <img class="h-10" src="{{ asset('images/astronauta.webp') }}"/>
+                    </a>
+                    <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-white"> Bem-vindo ao Instituto PhysCore! </h1>
+                    <p class="mt-4 leading-relaxed text-gray-500 dark:text-gray-400"> Faça seu login para poder acessar todos os conteúdos do site </p>
+                </div>
+
+                <form method="POST" action="{{ route('login') }}" class="mt-8 grid gap-6">
+                    @csrf
+                    <div class="">
+                        <x-form.label for="Email"> Email </x-form.label>
+                        <x-form.input id="Email" name="email" type="email" placeholder="Insira aqui seu email"/>
+                        <x-form.error :messages="$errors->get('email')"/>
+                    </div>
+                    <div class="">
+                        <x-form.label for="Password"> Senha </x-form.label>
+                        <x-form.input id="Password" name="password" type="password" placeholder="Insira aqui sua senha"/>
+                        <x-form.error :messages="$errors->get('password')"/>
+                    </div>
+                    <div class="sm:flex sm:items-center sm:gap-4">
+                        <x-form.button>Login</x-form.button>
+                        <p class="mt-4 text-sm text-gray-500 sm:mt-0 dark:text-gray-400"> Ainda não tem uma conta? <a href="#" class="text-gray-700 underline dark:text-gray-200">Registre-se</a>, é de graça. </p>
+                    </div>
+                </form>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </main>
+</div>
+</x-auth-layout>

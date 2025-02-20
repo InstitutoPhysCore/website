@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('desc');
-            $table->foreignIdFor(Equipe::class);
+            $table->foreignIdFor(Equipe::class, 'author');
             $table->longText('content');
             $table->timestamps();
         });

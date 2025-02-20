@@ -14,7 +14,7 @@ class NoticiaController extends Controller
     }
 
     public function show(Noticia $noticia) {
-        return view('noticias.show', $noticia);
+        return view('noticias.show', ['noticia' => $noticia]);
     }
 
     public function create() {
