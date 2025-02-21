@@ -21,6 +21,11 @@
         </div>
     </section>
 
+    @guest
+        <x-section.restrict/>
+    @endguest
+
+    @auth
     <section class="">
         <div class="mx-auto max-w-screen-xl px-6 py-16 dark:text-white">
             <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Categorias </h2>
@@ -90,6 +95,7 @@
         </div>
     </section>
 
+    @endauth
 
     
     

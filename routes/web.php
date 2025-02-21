@@ -21,8 +21,6 @@ Route::controller(PainelController::class)->group(function () {
     Route::get('/painel', 'index');
 });
 
-Route::post('/dev', [ImageController::class, 'upload'])->name('image.upload');
-
 // Rotas de Páginas Estáticas
 Route::view('/quemsomos', 'static.quemsomos')->name('page.quemsomos');                      // Página Quem Somos
 Route::view('/objetivos', 'static.objetivos')->name('page.objetivos');                      // Página de Objetivos

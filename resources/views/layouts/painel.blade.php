@@ -10,13 +10,13 @@
 
 </head>
 
-<body>
+<body class="flex">
 
     <!-- Navbar -->
     <x-painel.sidebar/>
 
     <!-- Conteúdo -->
-    <main>
+    <main class="">
         {{ $slot }}
     </main>
     
