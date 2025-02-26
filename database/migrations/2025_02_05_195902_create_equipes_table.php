@@ -22,6 +22,7 @@ return new class extends Migration
             $table->mediumText('bio');
             $table->longText('about');
             $table->json('socialmedia');
+            $table->json('badges');
             $table->timestamps();
         });
     }

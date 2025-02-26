@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('secretarias', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(Equipe::class)->nullable();
+            $table->foreignIdFor(Equipe::class, 'diretor');
             $table->mediumText('desc');
             $table->timestamps();
         });

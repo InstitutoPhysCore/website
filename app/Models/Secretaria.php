@@ -13,8 +13,8 @@ class Secretaria extends Model
         return $this->hasMany(Equipe::class);
     }
 
-    public function diretor(): BelongsTo
+    public function diretor()
     {
-        return $this->belongsTo(Equipe::class, "equipe_id");
+        return $this->belongsTo(Equipe::class, 'diretor');
     }
 }

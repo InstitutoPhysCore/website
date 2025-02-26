@@ -11,4 +11,9 @@ class Equipe extends Model
     {
         return $this->belongsTo(Secretaria::class);
     }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
