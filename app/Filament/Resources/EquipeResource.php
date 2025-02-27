@@ -60,8 +60,10 @@ class EquipeResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('socialmedia')
                     ->label('Redes Sociais')
-                    ->required()
-                    ->columnSpanFull(),
+                    ->required(),
+                Forms\Components\Textarea::make('badges')
+                    ->label('Badges')
+                    ->required(),
             ]);
     }
 

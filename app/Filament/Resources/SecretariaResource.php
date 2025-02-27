@@ -28,8 +28,8 @@ class SecretariaResource extends Resource
                     ->required(),
                 Forms\Components\Select::make('diretor')
                     ->label('Diretor da Secretaria')
-                    ->relationship('equipe')
-                    ->required(),
+                    ->searchable()
+                    ->relationship('equipe', 'name'),
                 Forms\Components\Textarea::make('desc')
                     ->label('Descrição')
                     ->required()

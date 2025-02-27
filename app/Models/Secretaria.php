@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Secretaria extends Model
 {
+    protected $guarded = "";
+
     public function membros(): HasMany
     {
         return $this->hasMany(Equipe::class);

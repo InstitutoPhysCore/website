@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Equipe extends Model
 {
+    protected $guarded = "";
+
     public function secretaria(): BelongsTo
     {
         return $this->belongsTo(Secretaria::class);
