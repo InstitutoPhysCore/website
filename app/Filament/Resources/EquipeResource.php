@@ -19,10 +19,16 @@ class EquipeResource extends Resource
 
     public static ?string $label = 'membro';
 
+    public static array $socials;
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Recursos';
+
+    
 
     public static function form(Form $form): Form
     {
+        session_start();
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
@@ -58,11 +64,30 @@ class EquipeResource extends Resource
                     ->label('Sobre')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('socialmedia')
+                Forms\Components\Select::make('socialmedia')
                     ->label('Redes Sociais')
+                    ->multiple()
+                    ->options($_SESSION['socials'])
+                    ->createOptionUsing(function($data) {
+                        $_SESSION['socials'] = $data;
+                    })
+                    ->createOptionForm([
+                        Forms\Components\Select::make('name')
+                            ->options([
+                                'Instagram' => 'Instagram'
+                            ])
+                            ->required(),
+                        Forms\Components\TextInput::make('link')
+                            ->required(),
+                    ])
                     ->required(),
-                Forms\Components\Textarea::make('badges')
+                Forms\Components\Select::make('badges')
                     ->label('Badges')
+                    ->multiple()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('name')
+                            ->required(),
+                    ])
                     ->required(),
             ]);
     }
@@ -73,13 +98,14 @@ class EquipeResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nome')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('secretaria.name')
                     ->numeric()
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('function')
-                    ->label('Função')
-                    ->searchable(),
+                    ->label('Função'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

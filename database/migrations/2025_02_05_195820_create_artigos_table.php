@@ -13,10 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('artigos', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('desc');
-            $table->foreignIdFor(Equipe::class, 'author');
+            $table->id();                                   // 
+            $table->string('title');                        // Título
+            $table->string('desc');                         // Descrição
+            $table->string('category');                     // Categoria
+            $table->foreignIdFor(Equipe::class, 'author');  // Autor
             $table->longText('content');
             $table->timestamps();
         });

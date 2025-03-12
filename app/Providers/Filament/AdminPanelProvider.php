@@ -25,7 +25,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('painel')
-            ->brandLogo(fn () => view('components.navbar.title'))
+            ->brandLogo(fn () => view('components.painel.logo'))
             ->path('painel')
             ->login()
             ->colors([
