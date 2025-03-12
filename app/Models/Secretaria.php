@@ -15,7 +15,7 @@ class Secretaria extends Model
         return $this->hasMany(Equipe::class);
     }
 
-    public function diretor()
+    public function diretor(): BelongsTo
     {
         return $this->belongsTo(Equipe::class, 'diretor');
     }

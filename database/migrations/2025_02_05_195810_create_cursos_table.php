@@ -17,12 +17,12 @@ return new class extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+
+            // Título e descrição
+            $table->string('title');
             $table->string('desc');
 
-            /*
-            Recursos como o curso podem tanto ter um membro como equipe
-            */
+            // Colunas para determinação do autor do recurso através da AuthorTrait
             $table->integer('author_type');
             $table->foreignId('author_id');
 
@@ -32,6 +32,9 @@ return new class extends Migration
 
             // ID da materia do curso
             $table->foreignIdFor(Materia::class)->nullable();
+
+            // Conteúdo do curso
+            $table->string('attachment');
 
             $table->timestamps();
         });

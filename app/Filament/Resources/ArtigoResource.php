@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SecretariaResource\Pages;
-use App\Filament\Resources\SecretariaResource\RelationManagers;
-use App\Models\Secretaria;
+use App\Filament\Resources\ArtigoResource\Pages;
+use App\Filament\Resources\ArtigoResource\RelationManagers;
+use App\Models\Artigo;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,28 +13,28 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class SecretariaResource extends Resource
+class ArtigoResource extends Resource
 {
-    protected static ?string $model = Secretaria::class;
+    protected static ?string $model = Artigo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Recursos';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->label('Nome')
+                Forms\Components\TextInput::make('title')
+                    ->label('Título')
                     ->required(),
-                Forms\Components\Select::make('diretor')
-                    ->label('Diretor da Secretaria')
-                    ->searchable()
-                    ->relationship('diretor', 'name'),
-                Forms\Components\Textarea::make('desc')
+                Forms\Components\Select::make('author')
+                    ->relationship('autor', 'name')    
+                    ->required(),
+                Forms\Components\TextInput::make('desc')
                     ->label('Descrição')
-                    ->required()
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->required(),
+                Forms\Components\MarkdownEditor::make('content')
+                    ->columnSpanFull()
             ]);
     }
 
@@ -42,10 +42,13 @@ class SecretariaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Titulo')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('diretor')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('desc')
+                    ->label('Descrição')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('author')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -79,9 +82,9 @@ class SecretariaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSecretarias::route('/'),
-            'create' => Pages\CreateSecretaria::route('/create'),
-            'edit' => Pages\EditSecretaria::route('/{record}/edit'),
+            'index' => Pages\ListArtigos::route('/'),
+            'create' => Pages\CreateArtigo::route('/create'),
+            'edit' => Pages\EditArtigo::route('/{record}/edit'),
         ];
     }
 }
