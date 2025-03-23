@@ -17,7 +17,11 @@ return new class extends Migration
             $table->string('title');                        // Título
             $table->string('desc');                         // Descrição
             $table->string('category');                     // Categoria
-            $table->foreignIdFor(Equipe::class, 'author');  // Autor
+            
+            // Colunas para determinação do autor do recurso através da AuthorTrait
+            $table->integer('author_type');
+            $table->foreignId('author_id');
+
             $table->longText('content');
             $table->timestamps();
         });

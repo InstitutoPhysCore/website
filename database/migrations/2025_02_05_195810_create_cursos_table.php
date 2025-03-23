@@ -38,6 +38,24 @@ return new class extends Migration
 
             $table->timestamps();
         });
+
+        Schema::create('cursos_series', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('title');
+            $table->string('desc');
+
+            $table->timestamps();
+        });
+
+        Schema::create('cursos_materias', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name');
+            $table->string('desc');
+
+            $table->timestamps();
+        });
     }
 
     /**

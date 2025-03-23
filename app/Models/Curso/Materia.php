@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Materia extends Model
 {
-    public function curso(): HasMany
+    // Especificar tabela para o recurso
+    protected $table = "cursos_materias";
+
+    public function cursos(): HasMany
     {
         return $this->hasMany(Curso::class);
     }

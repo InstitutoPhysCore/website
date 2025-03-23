@@ -27,10 +27,6 @@ class SecretariaResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Nome')
                     ->required(),
-                Forms\Components\Select::make('diretor')
-                    ->label('Diretor da Secretaria')
-                    ->searchable()
-                    ->relationship('diretor', 'name'),
                 Forms\Components\Textarea::make('desc')
                     ->label('Descrição')
                     ->required()
@@ -44,9 +40,6 @@ class SecretariaResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('diretor')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

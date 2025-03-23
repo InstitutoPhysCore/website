@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('bibliotecas', function (Blueprint $table) {
             $table->id();
+
+            // Colunas para determinação do autor do recurso através da AuthorTrait
+            $table->integer('author_type');
+            $table->foreignId('author_id');
+            
             $table->timestamps();
         });
     }
