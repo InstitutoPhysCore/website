@@ -26,17 +26,4 @@ class SoftwareController extends Controller
         return view('softwares.edit', ['software' => $software]);
     }
 
-    // Requisições de formulários
-
-    public function store(Request $request) {
-
-    }
-
-    public function update(Request $request, Software $software) {
-
-    }
-
-    public function destroy(Request $request, Software $software) {
-
-    }
 }

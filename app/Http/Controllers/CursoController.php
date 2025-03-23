@@ -25,15 +25,4 @@ class CursoController extends Controller
         return view('cursos.edit', $curso);
     }
 
-    public function store(Request $request) {
-
-    }
-
-    public function update(Request $request, Curso $curso) {
-
-    }
-
-    public function destroy(Request $request, Curso $curso) {
-
-    }
 }

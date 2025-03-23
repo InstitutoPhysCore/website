@@ -24,18 +24,4 @@ class BibliotecaController extends Controller
     public function edit(Biblioteca $biblioteca) {
         return view('biblioteca.edit', $biblioteca);
     }
-
-    // Requisições de formulários
-
-    public function store(Request $request) {
-
-    }
-
-    public function update(Request $request, Biblioteca $biblioteca) {
-
-    }
-
-    public function destroy(Request $request, Biblioteca $biblioteca) {
-
-    }
 }

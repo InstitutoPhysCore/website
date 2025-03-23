@@ -26,16 +26,4 @@ class EquipeController extends Controller
     public function edit(Equipe $membro) {
         return view('equipe.edit', $membro);
     }
-
-    public function store(Request $request) {
-
-    }
-
-    public function update(Request $request, Equipe $membro) {
-
-    }
-
-    public function destroy(Request $request, Equipe $membro) {
-
-    }
 }

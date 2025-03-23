@@ -33,4 +33,5 @@ class Curso extends Model
     {
         return $this->belongsTo(Materia::class);
     }
+
 }

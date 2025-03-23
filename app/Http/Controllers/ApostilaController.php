@@ -24,16 +24,5 @@ class ApostilaController extends Controller
         public function edit(Apostila $apostila) {
             return view('apostilas.edit', $apostila);
         }
-    
-        public function store(Request $request) {
-    
-        }
-    
-        public function update(Request $request, Apostila $apostila) {
-    
-        }
-    
-        public function destroy(Request $request, Apostila $apostila) {
-    
-        }
+
 }

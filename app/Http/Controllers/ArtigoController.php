@@ -24,18 +24,4 @@ class ArtigoController extends Controller
     public function edit(Artigo $artigo) {
         return view('artigos.edit', $artigo);
     }
-
-    // Requisições de formulários
-
-    public function store(Request $request) {
-
-    }
-
-    public function update(Request $request, artigo $artigo) {
-
-    }
-
-    public function destroy(Request $request, artigo $artigo) {
-
-    }
 }

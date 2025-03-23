@@ -25,17 +25,4 @@ class NoticiaController extends Controller
         return view('noticias.edit', $noticia);
     }
 
-    // Requisições de formulários
-
-    public function store(Request $request) {
-
-    }
-
-    public function update(Request $request, Noticia $noticia) {
-
-    }
-
-    public function destroy(Request $request, Noticia $noticia) {
-
-    }
 }
