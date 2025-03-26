@@ -5,7 +5,6 @@ namespace App\Models\Curso;
 use App\Author;
 use App\AuthorTrait;
 use App\Models\Curso\Serie;
-use App\Models\Curso\Materia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -23,15 +22,6 @@ class Curso extends Model
     public function serie(): BelongsTo
     {
         return $this->belongsTo(Serie::class);
-    }
-
-    /* 
-    Retorna a materia do curso
-    ['name', 'desc']
-    */
-    public function materia(): BelongsTo
-    {
-        return $this->belongsTo(Materia::class);
     }
 
 }

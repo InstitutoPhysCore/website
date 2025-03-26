@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Biblioteca;
+use App\Models\Biblioteca\Livro;
 use Illuminate\Http\Request;
 
 class BibliotecaController extends Controller
@@ -13,15 +13,8 @@ class BibliotecaController extends Controller
         return view('biblioteca.index');
     }
 
-    public function show(Biblioteca $biblioteca) {
-        return view('biblioteca.show', $biblioteca);
+    public function show(Livro $livro) {
+        return view('biblioteca.show', $livro);
     }
-
-    public function create() {
-        return view('biblioteca.create');
-    }
-
-    public function edit(Biblioteca $biblioteca) {
-        return view('biblioteca.edit', $biblioteca);
-    }
+    
 }

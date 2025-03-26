@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Curso;
+use App\Models\Curso\Curso;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -15,14 +15,6 @@ class CursoController extends Controller
 
     public function show(Curso $curso) {
         return view('cursos.show', $curso);
-    }
-
-    public function create() {
-        return view('cursos.create');
-    }
-
-    public function edit(Curso $curso) {
-        return view('cursos.edit', $curso);
     }
 
 }

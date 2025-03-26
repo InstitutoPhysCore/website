@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Equipe;
-use App\Models\Secretaria;
+use App\Models\Equipe\Membro;
+use App\Models\Equipe\Secretaria;
 use Illuminate\Http\Request;
 
 class EquipeController extends Controller
@@ -15,15 +15,8 @@ class EquipeController extends Controller
         return view('equipe.index', ['secretarias' => $secretarias]);
     }
 
-    public function show(Equipe $membro) {
-        return view('equipe.show', $membro);
+    public function show(Membro $membro) {
+        return view('equipe.show', ['membro' => $membro]);
     }
 
-    public function create() {
-        return view('equipe.create');
-    }
-
-    public function edit(Equipe $membro) {
-        return view('equipe.edit', $membro);
-    }
 }

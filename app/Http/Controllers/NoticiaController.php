@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Noticia;
+use App\Models\Noticia\Noticia;
 use Illuminate\Http\Request;
 
 class NoticiaController extends Controller
@@ -15,14 +15,6 @@ class NoticiaController extends Controller
 
     public function show(Noticia $noticia) {
         return view('noticias.show', ['noticia' => $noticia]);
-    }
-
-    public function create() {
-        return view('noticias.create');
-    }
-
-    public function edit(Noticia $noticia) {
-        return view('noticias.edit', $noticia);
     }
 
 }
