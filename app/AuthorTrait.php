@@ -4,12 +4,12 @@ namespace App;
 
 use App\Models\Author\Author as ForeignAuthor;
 use Dom\Attr;
-use App\Models\Equipe;
+use App\Models\Membro;
 use App\Models\Secretaria;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /*
-Retorna uma equipe, secretaria ou autor de foreign ID 'author_id' dependendo do integer 'author_type'
+Retorna uma equipe, secretaria ou autor de foreign ID 'author_id' dependendo do integro 'author_type'
 */
 
 trait AuthorTrait {
@@ -20,7 +20,7 @@ trait AuthorTrait {
             
             // Caso para retornar um membro
             case 0:
-                $author = $this->belongsTo(Equipe::class, 'author_id');
+                $author = $this->belongsTo(Membro::class, 'author_id');
                 break;
 
             // Caso para retornar uma secretaria

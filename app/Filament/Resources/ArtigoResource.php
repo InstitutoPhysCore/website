@@ -2,22 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ArtigoResource\Pages;
-use App\Filament\Resources\ArtigoResource\RelationManagers;
-use App\Models\Artigo;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\Artigo\Artigo;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ArtigoResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ArtigoResource\RelationManagers;
 
 class ArtigoResource extends Resource
 {
     protected static ?string $model = Artigo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Recursos';
 
     public static function form(Form $form): Form
     {

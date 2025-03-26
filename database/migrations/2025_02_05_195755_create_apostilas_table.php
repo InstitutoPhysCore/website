@@ -37,7 +37,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('apostilas_series', function (Blueprint $table) {
+        Schema::create('apostila_series', function (Blueprint $table) {
             $table->id();
 
             $table->string('title');
@@ -46,7 +46,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('apostilas_materias', function (Blueprint $table) {
+        Schema::create('apostila_materias', function (Blueprint $table) {
             $table->id();
 
             $table->string('name');
@@ -62,5 +62,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('apostilas');
+        Schema::dropIfExists('apostila_series');
+        Schema::dropIfExists('apostila_materias');
     }
 };

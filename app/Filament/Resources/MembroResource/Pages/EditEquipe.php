@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\EquipeResource\Pages;
+namespace App\Filament\Resources\MembroResource\Pages;
 
-use App\Filament\Resources\EquipeResource;
+use App\Filament\Resources\MembroResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
 class EditEquipe extends EditRecord
 {
-    protected static string $resource = EquipeResource::class;
+    protected static string $resource = MembroResource::class;
 
     protected function getHeaderActions(): array
     {

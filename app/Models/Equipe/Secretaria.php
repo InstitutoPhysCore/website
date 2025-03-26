@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Equipe;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,11 +12,11 @@ class Secretaria extends Model
 
     public function membros(): HasMany
     {
-        return $this->hasMany(Equipe::class);
+        return $this->hasMany(Membro::class);
     }
 
     public function diretor(): BelongsTo
     {
-        return $this->belongsTo(Equipe::class, 'diretor');
+        return $this->belongsTo(Membro::class, 'diretor');
     }
 }

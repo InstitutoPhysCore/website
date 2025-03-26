@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Equipe;
+use App\Models\Equipe\Membro;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('secretarias', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(Equipe::class, 'diretor')->nullable();
+            $table->foreignIdFor(Membro::class, 'diretor')->nullable();
             $table->mediumText('desc');
             $table->timestamps();
         });

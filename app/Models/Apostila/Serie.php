@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Serie extends Model
 {
     // Especificar tabela para o recurso
-    protected $table = "apostilas_series";
+    protected $table = "apostila_series";
 
     public function apostilas(): HasMany
     {

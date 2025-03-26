@@ -2,27 +2,27 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\EquipeResource\Pages;
-use App\Filament\Resources\EquipeResource\RelationManagers;
-use App\Models\Equipe;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\Equipe\Membro;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\MembroResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\MembroResource\RelationManagers;
 
-class EquipeResource extends Resource
+class MembroResource extends Resource
 {
-    protected static ?string $model = Equipe::class;
+    protected static ?string $model = Membro::class;
 
     public static ?string $label = 'membro';
 
     public static array $socials;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Recursos';
+    protected static ?string $navigationGroup = 'Equipe';
 
     
 

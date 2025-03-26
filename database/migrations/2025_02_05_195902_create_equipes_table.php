@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Secretaria;
 use App\Models\User;
+use App\Models\Equipe\Secretaria;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipes', function (Blueprint $table) {
+        Schema::create('membros', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->foreignIdFor(Secretaria::class);
@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('function');
             $table->mediumText('bio');
             $table->longText('about');
-            $table->json('socialmedia');
-            $table->json('badges');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('equipes');
+        Schema::dropIfExists('membros');
     }
 };

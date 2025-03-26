@@ -2,23 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SecretariaResource\Pages;
-use App\Filament\Resources\SecretariaResource\RelationManagers;
-use App\Models\Secretaria;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use App\Models\Equipe\Secretaria;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\SecretariaResource\Pages;
+use App\Filament\Resources\SecretariaResource\RelationManagers;
 
 class SecretariaResource extends Resource
 {
     protected static ?string $model = Secretaria::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Recursos';
+    protected static ?string $navigationGroup = 'Equipe';
 
     public static function form(Form $form): Form
     {

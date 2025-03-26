@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Noticia;
 
 use App\AuthorTrait;
 use Illuminate\Database\Eloquent\Model;

@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('noticias', function (Blueprint $table) {
             $table->id();
+
             $table->string('title');
             $table->string('desc');
             
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->foreignId('author_id');
 
             $table->longText('content');
+            
             $table->timestamps();
         });
     }
