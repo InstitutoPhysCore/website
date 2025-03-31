@@ -15,8 +15,15 @@ class EquipeController extends Controller
         return view('equipe.index', ['secretarias' => $secretarias]);
     }
 
+    public function pageDiretoria() {
+        $secretarias = Secretaria::all();
+        return view('equipe.diretoria', ['secretarias' => $secretarias]);
+    }
+
     public function show(Membro $membro) {
         return view('equipe.show', ['membro' => $membro]);
     }
+
+
 
 }

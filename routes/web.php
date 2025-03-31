@@ -29,7 +29,7 @@ Route::controller(EquipeController::class)->group(function () {
 
     // Requisições de Página
     Route::get('/equipe', 'index')->name('equipe.index');                                   // Página inicial
-    Route::get('/equipe/diretoria', 'diretoriaPage')->name('equipe.page.diretoria');        // Página da diretoria
+    Route::get('/equipe/diretoria', 'pageDiretoria')->name('equipe.page.diretoria');        // Página da diretoria
     Route::get('/equipe/membro/{membro}', 'show')->name('equipe.show');                     // Página de detalhes do membro
 
 });

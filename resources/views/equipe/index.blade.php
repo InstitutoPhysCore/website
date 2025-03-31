@@ -25,6 +25,7 @@
         
             <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-6 md:gap-8">
                 {{-- Carregar diretor da secretaria --}}
+                @if (!empty($secretaria->diretor->id))
                 <a href="/equipe/membro/{{ $secretaria->diretor->id }}"><blockquote class="transition hover:scale-105">
                     <div class="flex justify-center">
                         <div class="rounded-full h-32 w-32 bg-cover" style="background-image: url({{ asset('images/equipe/nicolasferreira.jpg') }});"></div>
@@ -35,6 +36,7 @@
                         <p class="mt-2">Diretor da Secretaria</p>
                     </div>
                 </blockquote></a>
+                @endif
 
                 {{-- Carregar membros de cada secretaria ignorando o diretor --}}
                 @foreach ($secretaria->membros->whereNotIn('id', $secretaria->diretor->id) as $membro)
