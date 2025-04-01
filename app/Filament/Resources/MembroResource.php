@@ -64,6 +64,7 @@ class MembroResource extends Resource
                     ->label('Sobre')
                     ->required()
                     ->columnSpanFull(),
+                /*
                 Forms\Components\Select::make('badges')
                     ->label('Badges')
                     ->multiple()
@@ -72,6 +73,7 @@ class MembroResource extends Resource
                             ->required(),
                     ])
                     ->required(),
+                */
             ]);
     }
 

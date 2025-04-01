@@ -2,7 +2,7 @@
 
 namespace App\Models\Artigo;
 
-use App\Models\Artigo;
+use App\Models\Artigo\Artigo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
