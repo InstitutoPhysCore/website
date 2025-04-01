@@ -23,12 +23,4 @@ class Livro extends Model
         return $this->belongsTo(Serie::class);
     }
 
-    /* 
-    Retorna a categoria do livro
-    ['name', 'desc']
-    */
-    public function categoria(): BelongsTo
-    {
-        return $this->belongsTo(Categoria::class);
-    }
 }

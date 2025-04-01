@@ -2,9 +2,10 @@
 
 namespace App\Models\Biblioteca;
 
-use App\Models\Livro;
+use App\Models\Biblioteca\Livro;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Serie extends Model
 {
@@ -15,4 +16,13 @@ class Serie extends Model
     {
         return $this->hasMany(Livro::class);
     }
+
+    /* 
+    Retorna a categoria da série
+    ['name', 'desc']
+    */
+    public function categoria(): BelongsTo
+    {
+        return $this->belongsTo(Categoria::class);
+    }  
 }

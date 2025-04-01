@@ -2,7 +2,7 @@
 
 namespace App\Models\Software;
 
-use App\Models\Software;
+use App\Models\Software\Software;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

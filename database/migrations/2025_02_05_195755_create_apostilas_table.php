@@ -28,9 +28,6 @@ return new class extends Migration
             $table->foreignIdFor(Serie::class)->nullable();
             $table->integer('volume')->nullable();
 
-            // ID da materia do livro
-            $table->foreignIdFor(Materia::class)->nullable();
-
             // Conteúdo do curso
             $table->string('attachment');
 
@@ -42,6 +39,9 @@ return new class extends Migration
 
             $table->string('title');
             $table->string('desc');
+
+            // ID da materia da série
+            $table->foreignIdFor(Materia::class)->nullable();
 
             $table->timestamps();
         });
