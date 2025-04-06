@@ -7,15 +7,17 @@ use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Forms\Components\Button;
 use App\Models\Artigo\Artigo;
+use App\Models\Author\Author;
 use App\Models\Equipe\Membro;
 use Filament\Resources\Resource;
+use App\Models\Equipe\Secretaria;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ArtigoResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ArtigoResource\RelationManagers;
-use App\Models\Author\Author;
-use App\Models\Equipe\Secretaria;
+use Filament\Forms\Components\ToggleButtons;
 
 class ArtigoResource extends Resource
 {
@@ -31,6 +33,7 @@ class ArtigoResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->label('Título')
                     ->required(),
+
                 Forms\Components\Select::make('author_type')
                     ->label('Tipo do Autor')
                     ->options([
@@ -47,6 +50,7 @@ class ArtigoResource extends Resource
                     ->options(function ($get) {
                         $authorType = $get('author_type');
 
+                        // Retorne os tipos de autores de acordo com a author_type
                         switch($authorType) {
                             case 0:
                                 return Membro::all()->pluck('name', 'id');
@@ -61,18 +65,6 @@ class ArtigoResource extends Resource
                     })
                     ->reactive()
                     ->required(),
-                Forms\Components\Placeholder::make('actions')
-                    ->label('')
-                    ->content(function (Closure $get) {
-                        $tipoAutor = $get('tipo_autor');
-                        if ($tipoAutor === 0 || $tipoAutor === 1) {
-                            return Button::make('Criar Novo')
-                                ->url(route('membros.create')) // Para Membros
-                                ->label('Criar Novo Membro')
-                                ->icon('heroicon-s-plus');
-                        }
-                        return null; // Não mostra o botão para Autor Externo
-                    }),
                 Forms\Components\TextInput::make('desc')
                     ->label('Descrição')
                     ->columnSpanFull()
