@@ -84,8 +84,6 @@ class ArtigoResource extends Resource
                 Tables\Columns\TextColumn::make('desc')
                     ->label('Descrição')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('author')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

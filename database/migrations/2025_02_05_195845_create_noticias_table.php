@@ -17,10 +17,16 @@ return new class extends Migration
 
             $table->string('title');
             $table->string('desc');
+
+            // Imagem de capa
+            $table->string('cover');
             
             // Colunas para determinação do autor do recurso através da AuthorTrait
             $table->integer('author_type');
             $table->foreignId('author_id');
+
+            // Definir a prioridade das noticias
+            $table->integer('priority');
 
             $table->longText('content');
             

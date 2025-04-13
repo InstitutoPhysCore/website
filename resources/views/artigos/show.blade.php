@@ -1,5 +1,6 @@
+
 <x-page-layout bg="images/cosmos.webp">
-    <x-container.primary class="rounded-lg my-12 !p-12 max-w-screen-lg bg-white">
+    <x-container.primary class="rounded-lg my-12 !p-12 bg-white">
         <div class="flex items-center gap-4">
             <img class="rounded-full object-cover w-16" src="{{ asset('images/equipe/nicolasferreira.jpg') }}"></img>
             <div>

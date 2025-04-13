@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\Artigo;
+use App\Models\Artigo\Artigo;
 use Livewire\Component;
 use Livewire\WithPagination;
 

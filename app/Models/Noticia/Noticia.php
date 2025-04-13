@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Noticia extends Model
 {
+    protected $guarded = '';
+
     use AuthorTrait;
 }

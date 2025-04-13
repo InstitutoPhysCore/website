@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\Noticia;
+use App\Models\Noticia\Noticia;
 use Livewire\Component;
 
 class ShowNoticias extends Component

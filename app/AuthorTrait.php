@@ -4,8 +4,8 @@ namespace App;
 
 use App\Models\Author\Author as ForeignAuthor;
 use Dom\Attr;
-use App\Models\Membro;
-use App\Models\Secretaria;
+use App\Models\Equipe\Membro;
+use App\Models\Equipe\Secretaria;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /*
