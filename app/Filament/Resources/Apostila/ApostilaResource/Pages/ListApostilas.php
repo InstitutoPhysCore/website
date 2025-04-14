@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\ApostilaResource\Pages;
+namespace App\Filament\Resources\Apostila\ApostilaResource\Pages;
 
-use App\Filament\Resources\ApostilaResource;
+use App\Filament\Resources\Apostila\ApostilaResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 

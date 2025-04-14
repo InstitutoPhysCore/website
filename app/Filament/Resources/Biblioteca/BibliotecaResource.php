@@ -2,23 +2,22 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\BibliotecaResource\Pages;
+use App\Filament\Resources\BibliotecaResource\RelationManagers;
+use App\Models\Biblioteca;
 use Filament\Forms;
-use Filament\Tables;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use App\Models\Apostila\Apostila;
+use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\ApostilaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\ApostilaResource\RelationManagers;
 
-class ApostilaResource extends Resource
+class BibliotecaResource extends Resource
 {
-    protected static ?string $model = Apostila::class;
+    protected static ?string $model = Biblioteca::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Recursos';
 
     public static function form(Form $form): Form
     {
@@ -32,14 +31,7 @@ class ApostilaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                //
             ])
             ->filters([
                 //
@@ -64,9 +56,9 @@ class ApostilaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListApostilas::route('/'),
-            'create' => Pages\CreateApostila::route('/create'),
-            'edit' => Pages\EditApostila::route('/{record}/edit'),
+            'index' => Pages\ListBibliotecas::route('/'),
+            'create' => Pages\CreateBiblioteca::route('/create'),
+            'edit' => Pages\EditBiblioteca::route('/{record}/edit'),
         ];
     }
 }
