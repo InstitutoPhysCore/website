@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Artigo;
 
 use Closure;
 use Filament\Forms;
@@ -14,9 +14,9 @@ use App\Models\Equipe\Membro;
 use Filament\Resources\Resource;
 use App\Models\Equipe\Secretaria;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\ArtigoResource\Pages;
+use App\Filament\Resources\Artigo\ArtigoResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\ArtigoResource\RelationManagers;
+use App\Filament\Resources\Artigo\ArtigoResource\RelationManagers;
 use Filament\Forms\Components\ToggleButtons;
 
 class ArtigoResource extends Resource
@@ -24,7 +24,7 @@ class ArtigoResource extends Resource
     protected static ?string $model = Artigo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Recursos';
+    protected static ?string $navigationGroup = 'Artigo';
 
     public static function form(Form $form): Form
     {

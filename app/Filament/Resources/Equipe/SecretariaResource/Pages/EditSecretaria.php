@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\SecretariaResource\Pages;
+namespace App\Filament\Resources\Equipe\SecretariaResource\Pages;
 
-use App\Filament\Resources\SecretariaResource;
+use App\Filament\Resources\Equipe\SecretariaResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

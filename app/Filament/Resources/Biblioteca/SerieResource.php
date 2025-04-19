@@ -1,23 +1,24 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Biblioteca;
 
-use App\Filament\Resources\BibliotecaResource\Pages;
-use App\Filament\Resources\BibliotecaResource\RelationManagers;
-use App\Models\Biblioteca;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\Biblioteca\Serie;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\Biblioteca\SerieResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\SerieResource\RelationManagers;
 
-class BibliotecaResource extends Resource
+class SerieResource extends Resource
 {
-    protected static ?string $model = Biblioteca::class;
+    protected static ?string $model = Serie::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Biblioteca';
 
     public static function form(Form $form): Form
     {
@@ -56,9 +57,9 @@ class BibliotecaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBibliotecas::route('/'),
-            'create' => Pages\CreateBiblioteca::route('/create'),
-            'edit' => Pages\EditBiblioteca::route('/{record}/edit'),
+            'index' => Pages\ListSeries::route('/'),
+            'create' => Pages\CreateSerie::route('/create'),
+            'edit' => Pages\EditSerie::route('/{record}/edit'),
         ];
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\NoticiaResource\Pages;
+namespace App\Filament\Resources\Noticia\NoticiaResource\Pages;
 
-use App\Filament\Resources\NoticiaResource;
+use App\Filament\Resources\Noticia\NoticiaResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

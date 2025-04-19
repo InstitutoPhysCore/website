@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Equipe;
 
 use Filament\Forms;
 use Filament\Tables;
@@ -9,9 +9,9 @@ use Filament\Tables\Table;
 use App\Models\Equipe\Membro;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\MembroResource\Pages;
+use App\Filament\Resources\Equipe\MembroResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\MembroResource\RelationManagers;
+use App\Filament\Resources\Equipe\MembroResource\RelationManagers;
 
 class MembroResource extends Resource
 {

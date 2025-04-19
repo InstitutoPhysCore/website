@@ -8,7 +8,7 @@ use App\Models\Curso\Serie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Curso extends Model
+class Aula extends Model
 {
     // Importar trait de autores
     use AuthorTrait;

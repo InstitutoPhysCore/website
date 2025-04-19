@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\ArtigoResource\Pages;
+namespace App\Filament\Resources\Artigo\ArtigoResource\Pages;
 
-use App\Filament\Resources\ArtigoResource;
+use App\Filament\Resources\Artigo\ArtigoResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

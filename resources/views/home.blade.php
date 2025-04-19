@@ -58,17 +58,7 @@
         <div class="mx-auto max-w-screen-xl px-6 py-16">
             <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Softwares </h2>
             <h6 class="text-center text-xl mt-2">Acesso rápido aos nossos Softwares</h6>
-            <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-                <a href="/"><blockquote class="rounded-lg shadow transition bg-neutral-700 hover:bg-neutral-600/75 hover:scale-105 hover:shadow-xl">
-                    <div class="rounded-t-lg h-32 w-full bg-cover" style="background-image: url({{ asset('images/cosmos.webp') }});"></div>
-                    <div class="p-8">
-                        <p class="text-lg font-bold">VACS
-                            <span class="whitespace-nowrap rounded-full bg-blue-500 px-2.5 py-0.5 text-sm">Windows</span>
-                        </p>
-                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend.</p>
-                        </div>
-                </blockquote></a>
-            </div>
+            <livewire:HomeSoftwares lazy/>
         </div>
     </section>
 

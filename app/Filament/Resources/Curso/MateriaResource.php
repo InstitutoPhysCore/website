@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Filament\Resources\Software;
+namespace App\Filament\Resources\Curso;
 
-use App\Filament\Resources\Software\SoftwareResource\Pages;
-use App\Filament\Resources\Software\SoftwareResource\RelationManagers;
-use App\Models\Software\Software;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\Curso\Materia;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\Curso\MateriaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\MateriaResource\RelationManagers;
 
-class SoftwareResource extends Resource
+class MateriaResource extends Resource
 {
-    protected static ?string $model = Software::class;
+    protected static ?string $model = Materia::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Outros';
+    protected static ?string $navigationGroup = 'Cursos';
 
     public static function form(Form $form): Form
     {
@@ -57,9 +57,9 @@ class SoftwareResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSoftware::route('/'),
-            'create' => Pages\CreateSoftware::route('/create'),
-            'edit' => Pages\EditSoftware::route('/{record}/edit'),
+            'index' => Pages\ListMaterias::route('/'),
+            'create' => Pages\CreateMateria::route('/create'),
+            'edit' => Pages\EditMateria::route('/{record}/edit'),
         ];
     }
 }

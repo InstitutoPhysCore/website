@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Noticia;
 
 use Filament\Forms;
 use Filament\Tables;
@@ -12,15 +12,16 @@ use App\Models\Noticia\Noticia;
 use Filament\Resources\Resource;
 use App\Models\Equipe\Secretaria;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\NoticiaResource\Pages;
+use App\Filament\Resources\Noticia\NoticiaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\NoticiaResource\RelationManagers;
+use App\Filament\Resources\Noticia\NoticiaResource\RelationManagers;
 
 class NoticiaResource extends Resource
 {
     protected static ?string $model = Noticia::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Outros';
 
     public static function form(Form $form): Form
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Equipe;
 
 use Filament\Forms;
 use Filament\Tables;
@@ -10,8 +10,8 @@ use Filament\Resources\Resource;
 use App\Models\Equipe\Secretaria;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\SecretariaResource\Pages;
-use App\Filament\Resources\SecretariaResource\RelationManagers;
+use App\Filament\Resources\Equipe\SecretariaResource\Pages;
+use App\Filament\Resources\Equipe\SecretariaResource\RelationManagers;
 
 class SecretariaResource extends Resource
 {
