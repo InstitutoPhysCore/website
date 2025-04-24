@@ -12,6 +12,8 @@ class Categoria extends Model
     // Especificar tabela para o recurso
     protected $table = "biblioteca_categorias";
 
+    protected $guarded = '';
+
     // Retornar as séries de uma categoria
     public function series(): HasMany
     {

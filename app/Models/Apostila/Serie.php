@@ -12,6 +12,8 @@ class Serie extends Model
     // Especificar tabela para o recurso
     protected $table = "apostila_series";
 
+    protected $guarded = '';
+
     public function apostilas(): HasMany
     {
         return $this->hasMany(Apostila::class);

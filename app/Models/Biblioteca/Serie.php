@@ -12,6 +12,8 @@ class Serie extends Model
     // Especificar tabela para o recurso
     protected $table = "biblioteca_series";
 
+    protected $guarded = '';
+
     public function livros(): HasMany
     {
         return $this->hasMany(Livro::class);

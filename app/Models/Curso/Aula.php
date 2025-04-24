@@ -13,6 +13,9 @@ class Aula extends Model
     // Importar trait de autores
     use AuthorTrait;
 
+    // Especificar tabela para o recurso
+    protected $table = 'cursos';
+
     protected $guarded = '';
 
     /* 

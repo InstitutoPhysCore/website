@@ -24,7 +24,20 @@ class SerieResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('title')
+                    ->label('Título')
+                    ->columnSpanFull()
+                    ->required(),
+
+                Forms\Components\TextInput::make('desc')
+                    ->label('Descrição')
+                    ->columnSpanFull()
+                    ->required(),
+
+                Forms\Components\Select::make('categoria_id')
+                    ->label('Categoria')
+                    ->relationship(name: 'categoria', titleAttribute: 'name')
+                    ->required(),
             ]);
     }
 
@@ -32,7 +45,13 @@ class SerieResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Título')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('desc')
+                    ->label('Descrição'),
+                Tables\Columns\TextColumn::make('categoria.name')
+                    ->label('Categoria'),
             ])
             ->filters([
                 //

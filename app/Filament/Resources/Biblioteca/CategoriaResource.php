@@ -24,7 +24,15 @@ class CategoriaResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->label('Nome')
+                    ->columnSpanFull()
+                    ->required(),
+
+                Forms\Components\TextInput::make('desc')
+                    ->label('Descrição')
+                    ->columnSpanFull()
+                    ->required(),
             ]);
     }
 
@@ -32,7 +40,11 @@ class CategoriaResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('desc')
+                    ->label('Descrição'),
             ])
             ->filters([
                 //

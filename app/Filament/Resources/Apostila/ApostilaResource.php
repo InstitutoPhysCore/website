@@ -20,6 +20,8 @@ class ApostilaResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Apostila';
 
+    protected static ?string $slug = 'apostilas';
+
     public static function form(Form $form): Form
     {
         return $form
