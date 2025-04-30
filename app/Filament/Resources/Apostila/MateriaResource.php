@@ -5,22 +5,20 @@ namespace App\Filament\Resources\Apostila;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
+use App\Models\Apostila\Materia;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use App\Models\Apostila\Apostila;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\Apostila\ApostilaResource\Pages;
+use App\Filament\Resources\Apostila\MateriaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\Apostila\ApostilaResource\RelationManagers;
+use App\Filament\Resources\MateriaResource\RelationManagers;
 
-class ApostilaResource extends Resource
+class MateriaResource extends Resource
 {
-    protected static ?string $model = Apostila::class;
+    protected static ?string $model = Materia::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Apostilas';
-
-    protected static ?string $slug = 'apostilas';
 
     public static function form(Form $form): Form
     {
@@ -34,14 +32,7 @@ class ApostilaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                //
             ])
             ->filters([
                 //
@@ -66,9 +57,9 @@ class ApostilaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListApostilas::route('/'),
-            'create' => Pages\CreateApostila::route('/create'),
-            'edit' => Pages\EditApostila::route('/{record}/edit'),
+            'index' => Pages\ListMaterias::route('/'),
+            'create' => Pages\CreateMateria::route('/create'),
+            'edit' => Pages\EditMateria::route('/{record}/edit'),
         ];
     }
 }
