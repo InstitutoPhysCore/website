@@ -23,6 +23,7 @@ Route::view('/apresentacoes', 'static.apresentacoes')->name('page.apresentacoes'
 Route::view('/projetos', 'static.projetos')->name('page.projetos');                         // Página de Projetos
 Route::view('/acoes', 'static.acoes')->name('page.acoes');                                  // Página de Ações Sociais
 Route::view('/iniciacaocientifica', 'static.iniciacao')->name('page.iniciacao');            // Página de Iniciação Cientifica
+Route::view('/privacidade', 'static.privacidade')->name('page.privacidade');                // Página de Politica de Privacidade
 
 // Rotas da Equipe
 Route::controller(EquipeController::class)->group(function () {
