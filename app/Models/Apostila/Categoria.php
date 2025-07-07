@@ -5,10 +5,10 @@ namespace App\Models\Apostila;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Materia extends Model
+class Categoria extends Model
 {
     // Especificar tabela para o recurso
-    protected $table = "apostila_materias";
+    protected $table = "apostila_categorias";
 
     protected $guarded = '';
 

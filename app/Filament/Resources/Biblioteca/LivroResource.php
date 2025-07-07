@@ -58,6 +58,7 @@ class LivroResource extends Resource
                     ->required(),
 
                 Forms\Components\TextInput::make('volume')
+                    ->label('Volume')
                     ->numeric()
                     ->required(),
 
@@ -80,7 +81,8 @@ class LivroResource extends Resource
                 Tables\Columns\TextColumn::make('author.name')
                     ->label('Autor'),
                 Tables\Columns\TextColumn::make('serie.title')
-                    ->label('Série'),
+                    ->label('Série')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('volume')
                     ->label('Volume da Série'),
                 Tables\Columns\TextColumn::make('categoria.name')

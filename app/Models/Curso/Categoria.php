@@ -7,10 +7,10 @@ use App\Models\Curso\Serie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Materia extends Model
+class Categoria extends Model
 {
     // Especificar tabela para o recurso
-    protected $table = "cursos_materias";
+    protected $table = "cursos_categorias";
 
     protected $guarded = '';
 

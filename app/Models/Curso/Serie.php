@@ -3,7 +3,7 @@
 namespace App\Models\Curso;
 
 use App\Models\Curso\Aula;
-use App\Models\Curso\Materia;
+use App\Models\Curso\Categoria;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,10 +24,10 @@ class Serie extends Model
     }
 
     /* 
-    Retorna a materia da série
+    Retorna a categoria da série
     */
-    public function materia(): BelongsTo
+    public function categoria(): BelongsTo
     {
-        return $this->belongsTo(Materia::class);
+        return $this->belongsTo(Categoria::class);
     }
 }

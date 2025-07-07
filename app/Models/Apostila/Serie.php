@@ -20,11 +20,11 @@ class Serie extends Model
     }
 
     /* 
-    Retorna a materia da série
+    Retorna a categoria da série
     ['name', 'desc']
     */
-    public function materia(): BelongsTo
+    public function categoria(): BelongsTo
     {
-        return $this->belongsTo(Materia::class);
+        return $this->belongsTo(Categoria::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Apostila;
 
+use AuthorSection;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
@@ -9,8 +10,8 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Models\Apostila\Apostila;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\Apostila\ApostilaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\Apostila\ApostilaResource\Pages;
 use App\Filament\Resources\Apostila\ApostilaResource\RelationManagers;
 
 class ApostilaResource extends Resource
@@ -26,7 +27,44 @@ class ApostilaResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('title')
+                    ->label('Título')
+                    ->columnSpanFull()
+                    ->required(),
+
+                Forms\Components\TextInput::make('desc')
+                    ->label('Descrição')
+                    ->columnSpanFull()
+                    ->required(),
+
+                AuthorSection::make(),
+
+                Forms\Components\Select::make('serie_id')
+                    ->label('Série')
+                    ->relationship(name: 'serie', titleAttribute: 'title')
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('title')
+                            ->label('Título da Série')
+                            ->required(),
+                        Forms\Components\TextInput::make('desc')
+                            ->label('Descrição da Série')
+                            ->required(),
+                        Forms\Components\Select::make('categoria_id')
+                            ->label('Categoria da Série')
+                            ->relationship(name: 'categoria', titleAttribute: 'name')
+                            ->required(),
+                    ])
+                    ->required(),
+
+                Forms\Components\TextInput::make('volume')
+                    ->label('Volume')
+                    ->numeric()
+                    ->required(),
+
+                Forms\Components\FileUpload::make('attachment')
+                    ->label('PDF do Livro')
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->required(),
             ]);
     }
 
@@ -34,14 +72,20 @@ class ApostilaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Título')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('desc')
+                    ->label('Descrição'),
+                Tables\Columns\TextColumn::make('author.name')
+                    ->label('Autor'),
+                Tables\Columns\TextColumn::make('serie.title')
+                    ->label('Série')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('volume')
+                    ->label('Volume da Série'),
+                Tables\Columns\TextColumn::make('categoria.name')
+                    ->label('Categoria'),
             ])
             ->filters([
                 //
