@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Artigo;
 
 use App\Models\Artigo\Artigo;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ShowArtigos extends Component
+class Show extends Component
 {
     use WithPagination;
 
@@ -30,6 +30,6 @@ class ShowArtigos extends Component
         }
         $artigos = $artigos->paginate(10);
 
-        return view('livewire.show-artigos', ['artigos' => $artigos]);
+        return view('livewire.artigo.show-artigos', ['artigos' => $artigos]);
     }
 }

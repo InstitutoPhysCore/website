@@ -26,11 +26,9 @@
 				<p class="mt-4 text-sm text-gray-400 sm:order-first sm:mt-0">&copy; 2025 Instituto PhysCore</p>
 			</div>
 
-			@env('local')
 			<div class="text-center sm:flex sm:justify-between sm:text-left">
-				<p class="mt-4 text-sm text-gray-400 sm:order-first sm:mt-0">Atenção! Ambiente de desenvolvimento.</p>
+				<p class="mt-4 text-sm text-gray-400 sm:order-first sm:mt-0">Desenvolvido com ❤️ por Nicolas Fernandes</p>
 			</div>
-			@endenv
 			
 		</div>
 	</div>

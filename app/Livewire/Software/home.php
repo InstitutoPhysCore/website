@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Software;
 
 use App\Models\Software\Software;
 use Livewire\Component;
 
-class HomeSoftwares extends Component
+class Home extends Component
 {
 
     public function placeholder() {
@@ -17,6 +17,6 @@ class HomeSoftwares extends Component
     public function render()
     {
         $softwares = Software::limit(3)->get();
-        return view('livewire.home-softwares', ['softwares' => $softwares]);
+        return view('livewire.software.home-softwares', ['softwares' => $softwares]);
     }
 }

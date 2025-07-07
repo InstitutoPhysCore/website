@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Apostila\Serie;
-use App\Models\Apostila\Materia;
+use App\Models\Apostila\Categoria;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -40,13 +40,13 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
 
-            // ID da materia da série
-            $table->foreignIdFor(Materia::class)->nullable();
+            // ID da Categoria da série
+            $table->foreignIdFor(Categoria::class)->nullable();
 
             $table->timestamps();
         });
 
-        Schema::create('apostila_materias', function (Blueprint $table) {
+        Schema::create('apostila_categorias', function (Blueprint $table) {
             $table->id();
 
             $table->string('name');

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Noticia;
 
 use App\Models\Noticia\Noticia;
 use Livewire\Component;
 
-class HomeNoticias extends Component
+class Home extends Component
 {
     public function placeholder() {
         return <<<'HTML'
@@ -16,6 +16,6 @@ class HomeNoticias extends Component
     public function render()
     {
         $noticias = Noticia::orderBy('priority', 'DESC')->orderBy('created_at', 'DESC')->limit(4)->get();
-        return view('livewire.home-noticias', ['noticias' => $noticias]);
+        return view('livewire.noticia.home-noticias', ['noticias' => $noticias]);
     }
 }

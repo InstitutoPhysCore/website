@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Artigo;
 
 use App\Models\Artigo\Artigo;
 use Livewire\Component;
 
-class HomeArtigos extends Component
+class Home extends Component
 {
 
     public function placeholder() {
@@ -17,6 +17,6 @@ class HomeArtigos extends Component
     public function render()
     {
         $artigos = Artigo::limit(3)->get();
-        return view('livewire.home-artigos', ['artigos' => $artigos]);
+        return view('livewire.artigo.home-artigos', ['artigos' => $artigos]);
     }
 }

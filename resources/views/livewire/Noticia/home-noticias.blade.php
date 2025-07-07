@@ -18,7 +18,7 @@
         </x-card.home-news>
     </div>
 @else
-    <p class="text-center mt-12 text-sm opacity-75">Não foi possivel encontrar nenhum artigo que correspondesse a sua pesquisa</p>
+    <p class="text-center mt-12 text-sm opacity-75">Pelo visto não temos nada a noticiar :(</p>
 @endif
 </div>
     

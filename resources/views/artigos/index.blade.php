@@ -9,6 +9,6 @@
         </div>
     </section>
 
-    <livewire:showArtigos/>
+    <livewire:Artigo.Show/>
     
 </x-page-layout>

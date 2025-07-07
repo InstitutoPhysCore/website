@@ -17,7 +17,7 @@
 
     <!-- Container Noticias -->
     <x-container.primary id="news">
-        <livewire:HomeNoticias lazy/>
+        <livewire:Noticia.Home lazy/>
     </x-container.primary>
 
     <!-- Container Breve Introdução -->
@@ -48,7 +48,7 @@
     <x-container.primary id="artigos">
         <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Artigos </h2>
         <h6 class="text-center text-xl mt-2">Achamos que você possa achar interessante esses artigos</h6>
-        <livewire:HomeArtigos lazy />
+        <livewire:Artigo.Home lazy />
         <div class="mt-12 gap-4 text-center">
             <x-button.link class="shadow-lg" href="{{ route('artigos.index') }}">Ver Mais Artigos</x-button.link>
         </div>  
@@ -58,7 +58,7 @@
         <div class="mx-auto max-w-screen-xl px-6 py-16">
             <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Softwares </h2>
             <h6 class="text-center text-xl mt-2">Acesso rápido aos nossos Softwares</h6>
-            <livewire:HomeSoftwares lazy/>
+            <livewire:Software.Home lazy/>
         </div>
     </section>
 
