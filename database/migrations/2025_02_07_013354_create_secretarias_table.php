@@ -16,6 +16,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignIdFor(Membro::class, 'diretor')->nullable();
+
+            // URL da Imagem da Capa
+            $table->string('cover_url')->nullable();
+
             $table->mediumText('desc');
             $table->timestamps();
         });

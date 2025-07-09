@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Apostila;
 
-use AuthorSection;
+use App\Filament\Forms\AuthorSection;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;

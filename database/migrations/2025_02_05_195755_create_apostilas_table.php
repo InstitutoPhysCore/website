@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
 
+            // URL da Imagem da Capa
+            $table->string('cover_url')->nullable();
+
             // Colunas para determinação do autor do recurso através da AuthorTrait
             $table->integer('author_type');
             $table->foreignId('author_id');
@@ -40,6 +43,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
 
+            // URL da Imagem da Capa
+            $table->string('cover_url')->nullable();
+
             // ID da Categoria da série
             $table->foreignIdFor(Categoria::class)->nullable();
 
@@ -51,6 +57,9 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('desc');
+
+            // URL da Imagem da Capa
+            $table->string('cover_url')->nullable();
 
             $table->timestamps();
         });

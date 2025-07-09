@@ -1,14 +1,17 @@
 <?php
 
+namespace App\Filament\Forms;
+
 use App\Models\Author\Author;
 use App\Models\Equipe\Membro;
 use App\Models\Equipe\Secretaria;
+use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
 
 class AuthorSection {
     public static function make() {
-        return [
+        return 
             Section::make('Autoria')->schema([
                 Select::make('author_type')
                     ->label('Tipo do Autor')
@@ -43,6 +46,6 @@ class AuthorSection {
                     ->reactive()
                     ->required(),
             ])
-        ];
+        ;
     }
 }

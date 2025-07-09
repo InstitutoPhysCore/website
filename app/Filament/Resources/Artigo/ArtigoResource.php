@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Artigo;
 
 use Closure;
-use AuthorSection;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
@@ -14,6 +13,7 @@ use App\Models\Author\Author;
 use App\Models\Equipe\Membro;
 use Filament\Resources\Resource;
 use App\Models\Equipe\Secretaria;
+use App\Filament\Forms\AuthorSection;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\ToggleButtons;
 use Illuminate\Database\Eloquent\SoftDeletingScope;

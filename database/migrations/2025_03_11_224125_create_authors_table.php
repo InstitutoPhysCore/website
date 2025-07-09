@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('name');     // Nome do autor
             $table->string('link');     // Link para o autor
 
+            // URL da Imagem da Capa
+            $table->string('cover_url')->nullable();
+
             $table->timestamps();
         });
     }

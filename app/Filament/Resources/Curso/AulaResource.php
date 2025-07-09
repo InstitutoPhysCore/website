@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\Curso;
 
-use AuthorSection;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
 use App\Models\Curso\Aula;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use App\Filament\Forms\AuthorSection;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Curso\AulaResource\Pages;

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
 
-            // Imagem de capa
-            $table->string('cover');
+            // URL da Imagem da Capa
+            $table->string('cover_url')->nullable();
             
             // Colunas para determinação do autor do recurso através da AuthorTrait
             $table->integer('author_type');

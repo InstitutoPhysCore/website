@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('membros', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+
+            // URL da Imagem da Capa
+            $table->string('avatar_url')->nullable();
+
             $table->foreignIdFor(Secretaria::class);
             $table->foreignIdFor(User::class);
             $table->string('function');

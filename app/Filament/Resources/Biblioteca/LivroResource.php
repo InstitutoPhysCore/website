@@ -11,11 +11,11 @@ use App\Models\Equipe\Membro;
 use App\Models\Biblioteca\Livro;
 use Filament\Resources\Resource;
 use App\Models\Equipe\Secretaria;
+use App\Filament\Forms\AuthorSection;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Biblioteca\LivroResource\Pages;
 use App\Filament\Resources\LivroResource\RelationManagers;
-use AuthorSection;
 
 class LivroResource extends Resource
 {
