@@ -15,7 +15,7 @@
 
                 <!-- Container Apresentação Mobile -->
                 <div class="relative -mt-16 block lg:hidden">
-                    <a class="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20 dark:bg-gray-900" href="#">
+                    <a class="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20 dark:bg-gray-900" href="{{ route('home') }}">
                         <span class="sr-only">Home</span>
                         <img class="h-10" src="{{ asset('images/astronauta.webp') }}"/>
                     </a>

@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Biblioteca\LivroResource\Pages;
 
 use App\Filament\Resources\Biblioteca\LivroResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\EditRecord;
 
 class EditLivro extends EditRecord
@@ -12,8 +12,6 @@ class EditLivro extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return Pages::editActions();
     }
 }

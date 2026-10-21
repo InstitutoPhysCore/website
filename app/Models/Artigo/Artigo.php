@@ -3,20 +3,20 @@
 namespace App\Models\Artigo;
 
 use App\AuthorTrait;
-use App\Models\Artigo\Categoria;
+use App\Models\Concerns\HasCover;
+use App\Models\Concerns\RendersMarkdown;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Artigo extends Model
 {
-    use HasFactory;
-    use AuthorTrait;
-    
-    protected $guarded = '';
-    
-    /* 
-    Retorna a categoria do livro
+    use HasFactory, AuthorTrait, HasCover, RendersMarkdown;
+
+    protected $guarded = [];
+
+    /*
+    Retorna a categoria do artigo
     ['name', 'desc']
     */
     public function categoria(): BelongsTo

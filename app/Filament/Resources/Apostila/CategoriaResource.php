@@ -2,68 +2,48 @@
 
 namespace App\Filament\Resources\Apostila;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Forms\Form;
-use App\Models\Apostila\Categoria;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\Apostila\CategoriaResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\CategoriaResource\RelationManagers;
+use App\Filament\Support\Fields;
+use App\Filament\Support\ManagedTable;
+use App\Filament\Forms\AuthorSection;
+use App\Models\Apostila\Categoria;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
 
 class CategoriaResource extends Resource
 {
     protected static ?string $model = Categoria::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $modelLabel = 'categoria';
+    protected static ?string $pluralModelLabel = 'categorias';
     protected static ?string $navigationGroup = 'Apostilas';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?int $navigationSort = 3;
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->label('Nome')
-                    ->columnSpanFull()
-                    ->required(),
-
-                Forms\Components\TextInput::make('desc')
-                    ->label('Descrição')
-                    ->columnSpanFull()
-                    ->required(),
-            ]);
+        return $form->schema([
+            Fields::title('name', 'Nome'),
+            Fields::desc(),
+            Fields::cover(),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('name')
-                    ->label('Nome')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('desc')
-                    ->label('Descrição'),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
+        return ManagedTable::make($table, [
+            Fields::coverColumn(),
+            Tables\Columns\TextColumn::make('name')->label('Nome')->searchable()->sortable(),
+            Tables\Columns\TextColumn::make('desc')->label('Descrição')->limit(60),
+            Tables\Columns\TextColumn::make('series_count')->counts('series')->label('Séries')->sortable(),
+            Fields::dateColumn(),
+        ], [
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
+        ]);
     }
 
     public static function getPages(): array

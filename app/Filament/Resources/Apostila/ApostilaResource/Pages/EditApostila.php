@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Apostila\ApostilaResource\Pages;
 
 use App\Filament\Resources\Apostila\ApostilaResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\EditRecord;
 
 class EditApostila extends EditRecord
@@ -12,8 +12,6 @@ class EditApostila extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return Pages::editActions();
     }
 }

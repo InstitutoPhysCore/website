@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artigo\Artigo;
-use Illuminate\Http\Request;
 
 class ArtigoController extends Controller
 {
@@ -12,6 +11,6 @@ class ArtigoController extends Controller
     }
 
     public function show(Artigo $artigo) {
-        return view('artigos.show', ['artigo' => $artigo]);
+        return view('artigos.show', ['artigo' => $artigo->load('categoria')]);
     }
 }

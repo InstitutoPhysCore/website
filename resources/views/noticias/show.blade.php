@@ -1,18 +1,12 @@
-<x-page-layout bg="images/cosmos.webp">
-    <x-container.primary class="rounded-lg my-12 !p-12 max-w-screen-lg bg-white">
-        <div class="flex items-center gap-4">
-            <img class="rounded-full object-cover w-16" src="{{ asset('images/equipe/nicolasferreira.jpg') }}"></img>
-            <div>
-                <h1 class="text-xl font-bold">{{ $noticia->author->name }}</h1>
-                <h6 class="text-sm">{{ $noticia->author->function }}</h6>
-            </div>
+<x-page-layout bg="images/cosmos.webp" :title="$noticia->title" :description="$noticia->desc">
+    <x-container.primary class="rounded-lg my-12 !p-6 sm:!p-12 max-w-screen-lg bg-white">
+        <x-author :model="$noticia"/>
+        <h1 class="mt-6 text-4xl sm:text-6xl font-bold tracking-tight">{{ $noticia->title }}</h1>
+        <h6 class="text-xl mt-2">{{ $noticia->desc }}</h6>
+        <p class="text-xs mt-2 opacity-60">{{ $noticia->created_at?->translatedFormat('d \d\e F \d\e Y') }}</p>
+        <div class="mt-12 prose max-w-none">
+            {!! $noticia->content_html !!}
         </div>
-        <h1 class="mt-6 text-5xl font-bold tracking-tight sm:text-6xl">{{ $noticia->title }}</h1>
-        <h6 class="text-xl mt-2">{{ $noticia->desc}}</h6>
-        <div class="mt-12">
-            <?php
-            echo Str::markdown($noticia->content);
-            ?>
-        </div>
+        <div class="mt-12"><x-button.link href="{{ route('noticias.index') }}">Voltar às notícias</x-button.link></div>
     </x-container.primary>
 </x-page-layout>

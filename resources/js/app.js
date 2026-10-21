@@ -1,12 +1,3 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
-import intersect from '@alpinejs/intersect'
- 
-Alpine.plugin(intersect)
-
-window.Alpine = Alpine;
-
-Alpine.start();
-
-
+// O Alpine (com o plugin intersect) é carregado pelo Livewire via @livewireScripts no layout.

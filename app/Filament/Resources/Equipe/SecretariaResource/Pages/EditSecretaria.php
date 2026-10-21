@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Equipe\SecretariaResource\Pages;
 
 use App\Filament\Resources\Equipe\SecretariaResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\EditRecord;
 
 class EditSecretaria extends EditRecord
@@ -12,8 +12,6 @@ class EditSecretaria extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return Pages::editActions();
     }
 }

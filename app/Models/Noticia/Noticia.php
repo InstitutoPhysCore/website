@@ -3,12 +3,13 @@
 namespace App\Models\Noticia;
 
 use App\AuthorTrait;
+use App\Models\Concerns\HasCover;
+use App\Models\Concerns\RendersMarkdown;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Noticia extends Model
 {
-    protected $guarded = '';
+    use AuthorTrait, HasCover, RendersMarkdown;
 
-    use AuthorTrait;
+    protected $guarded = [];
 }

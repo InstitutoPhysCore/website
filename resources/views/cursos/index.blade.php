@@ -1,16 +1,5 @@
-<x-page-layout>
+<x-page-layout title="Cursos">
+    <x-hero title="Cursos" subtitle="Cursos do PhysCore"/>
 
-    <section class="bg-fixed" style="background-image: url({{ asset('images/cosmos.webp') }});">
-        <div class="mx-auto max-w-screen-xl px-6 py-32">
-            <div class="text-center">
-                <h1 class="text-5xl font-extrabold sm:text-7xl text-white"> Cursos </h1>
-                <p class="mt-4 sm:text-xl text-white"> Cursos do PhysCore </p>
-            </div>
-        </div>
-    </section>
-
-    <livewire:Curso.Categorias/>
-
-    <livewire:Curso.Index/>
-    
+    <livewire:catalogo tipo="cursos"/>
 </x-page-layout>

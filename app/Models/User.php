@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
+use App\Models\Concerns\ProtectsOnDelete;
+use App\Models\Equipe\Membro;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, ProtectsOnDelete;
 
     /**
      * The attributes that are mass assignable.
@@ -25,11 +26,29 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'password',
         'avatar_url',
+        'is_admin',
     ];
 
+    // Membros da equipe mantêm o cadastro quando a conta é excluída
+    protected array $nullifyOnDelete = ['membros'];
+
+    // Somente administradores acessam o painel
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        return (bool) $this->is_admin;
+    }
+
+    // Nunca excluir o último administrador
+    protected function extraDeleteBlockers(): array
+    {
+        return $this->is_admin && static::where('is_admin', true)->count() <= 1
+            ? ['Este é o último administrador do site.']
+            : [];
+    }
+
+    public function membros(): HasMany
+    {
+        return $this->hasMany(Membro::class);
     }
 
     /**
@@ -52,6 +71,7 @@ class User extends Authenticatable implements FilamentUser
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
     }
 }

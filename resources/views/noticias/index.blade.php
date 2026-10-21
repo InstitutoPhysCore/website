@@ -1,4 +1,4 @@
-<x-page-layout>
+<x-page-layout title="Notícias">
     <!-- Container Noticias -->
     <x-container.primary id="news">
         <x-text.heading class="text-center mb-12">Principais Notícias</x-text.heading>

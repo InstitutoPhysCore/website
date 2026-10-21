@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
       
             <p class="mt-4 mb-4 text-gray-400">@yield('message')</p>
       
-            <x-button.link href="">Voltar ao Início</x-button.link>
+            <x-button.link href="/">Voltar ao Início</x-button.link>
         </div>
     </div>
 </body>

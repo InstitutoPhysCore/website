@@ -1,20 +1,20 @@
 <?php
 
-use Illuminate\View\View;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ApostilaController;
 use App\Http\Controllers\ArtigoController;
+use App\Http\Controllers\BibliotecaController;
+use App\Http\Controllers\CursoController;
 use App\Http\Controllers\EquipeController;
 use App\Http\Controllers\NoticiaController;
-use App\Http\Controllers\ApostilaController;
 use App\Http\Controllers\SoftwareController;
-use App\Http\Controllers\BibliotecaController;
-use App\Http\Controllers\ImageController;
-use App\Http\Controllers\PainelController;
+use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
 
-Route::view('/dev', 'playground')->name('dev');
+// Página de testes de interface (apenas em desenvolvimento)
+if (app()->environment('local')) {
+    Route::view('/dev', 'playground')->name('dev');
+}
 
 // Rotas de Páginas Estáticas
 Route::view('/quemsomos', 'static.quemsomos')->name('page.quemsomos');                      // Página Quem Somos
@@ -53,12 +53,12 @@ Route::controller(NoticiaController::class)->group(function () {
 
 });
 
-// Rotas das Softwares
-Route::controller(SoftwareController::class)->group(function () {
+// Rotas dos Softwares (acesso restrito a usuários autenticados)
+Route::controller(SoftwareController::class)->middleware('auth')->group(function () {
 
     // Requisições de Página
-    Route::get('/softwares', 'index')->name('softwares.index')->middleware('auth');                             // Página inicial
-    Route::get('/softwares/{software}', 'show')->name('softwares.show');                    // Página de detalhes da software
+    Route::get('/softwares', 'index')->name('softwares.index');                             // Página inicial
+    Route::get('/softwares/{software}', 'show')->name('softwares.show');                    // Página de detalhes do software
 
 });
 
@@ -76,7 +76,7 @@ Route::controller(BibliotecaController::class)->group(function () {
 
     // Requisições de Página
     Route::get('/biblioteca', 'index')->name('biblioteca.index');                           // Página inicial
-    Route::get('/biblioteca/{livro}', 'show')->name('biblioteca.show');                     // Página de detalhes da biblioteca
+    Route::get('/biblioteca/{livro}', 'show')->name('biblioteca.show');                     // Página de detalhes do livro
 
 });
 
@@ -85,7 +85,8 @@ Route::controller(CursoController::class)->group(function () {
 
     // Requisições de Página
     Route::get('/cursos', 'index')->name('cursos.index');                                   // Página inicial
-    Route::get('/cursos/{curso}', 'show')->name('cursos.show');                             // Página de detalhes do curso
+    Route::get('/cursos/aulas/{aula}', 'aula')->name('cursos.aula');                        // Página de uma aula
+    Route::get('/cursos/{serie}', 'show')->name('cursos.show');                             // Página de detalhes do curso (série)
 
 });
 

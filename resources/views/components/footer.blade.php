@@ -19,9 +19,9 @@
 			<div class="text-center sm:flex sm:justify-between sm:text-left">
 				<p class="text-sm text-gray-500">
 					<span class="block sm:inline">Todos os Direitos Reservados.</span>
-					<a class="inline-block text-violet-600 underline transition hover:opacity-75" href="#"> Informações </a>
+					<a class="inline-block text-violet-600 underline transition hover:opacity-75" href="{{ route('page.quemsomos') }}"> Informações </a>
 					<span>&middot;</span>
-					<a class="inline-block text-violet-600 underline transition hover:opacity-75" href="#"> Politica de Privacidade </a>
+					<a class="inline-block text-violet-600 underline transition hover:opacity-75" href="{{ route('page.privacidade') }}"> Politica de Privacidade </a>
 				</p>
 				<p class="mt-4 text-sm text-gray-400 sm:order-first sm:mt-0">&copy; 2025 Instituto PhysCore</p>
 			</div>

@@ -15,7 +15,7 @@
 
                     <!-- Container Apresentação Mobile -->
                     <div class="relative -mt-16 block lg:hidden">
-                        <a class="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20 dark:bg-gray-900" href="#">
+                        <a class="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20 dark:bg-gray-900" href="{{ route('home') }}">
                             <span class="sr-only">Home</span>
                             <img class="h-10" src="{{ asset('images/astronauta.webp') }}"/>
                         </a>
@@ -34,10 +34,11 @@
                             <x-form.label for="Password"> Senha </x-form.label>
                             <x-form.input id="Password" name="password" type="password" placeholder="Insira aqui sua senha"/>
                             <x-form.error :messages="$errors->get('password')"/>
+                            <a href="{{ route('password.request') }}" class="mt-1 inline-block text-sm text-gray-700 underline">Esqueceu a senha?</a>
                         </div>
                         <div class="sm:flex sm:items-center sm:gap-4">
                             <x-form.button>Login</x-form.button>
-                            <p class="mt-4 text-sm text-gray-500 sm:mt-0 dark:text-gray-400"> Ainda não tem uma conta? <a href="#" class="text-gray-700 underline dark:text-gray-200">Registre-se</a>, é de graça. </p>
+                            <p class="mt-4 text-sm text-gray-500 sm:mt-0 dark:text-gray-400"> Ainda não tem uma conta? <a href="{{ route('register') }}" class="text-gray-700 underline dark:text-gray-200">Registre-se</a>, é de graça. </p>
                         </div>
                     </form>
             </div>

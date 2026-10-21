@@ -1,23 +1,25 @@
 <div class="lg:hidden transition">
     <div class="flex p-6 rounded-lg justify-between items-center bg-zinc-800 mt-4">
         @auth
-        <a href="#" class="block py-2 px-3 text-gray-100 rounded hover:bg-violet-900" aria-current="page">
-            <div class="flex items-center justify-around">
-                    <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                        <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-                    </div>
-                <span class="text-gray-100 ml-3">Usuário</span>
-            </div>
-        </a>
+        <div class="flex items-center">
+            <x-avatar :src="\App\Models\Concerns\HasCover::fileUrl(Auth::user()->avatar_url)" :name="Auth::user()->name" size="w-10 h-10"/>
+            <span class="text-gray-100 ml-3">{{ Auth::user()->name }}</span>
+        </div>
 
-        <form class="px-3">
-            <button class="text-gray-100 text-lg hover:text-violet-600">
-                <i class="fa-solid fa-right-from-bracket"></i>
-            </button>
-        </form>
+        <div class="flex items-center gap-4">
+            @if (Auth::user()->is_admin)
+                <a href="{{ url('/painel') }}" class="text-gray-100 text-sm hover:text-violet-600">Painel</a>
+            @endif
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="text-gray-100 text-lg hover:text-violet-600" title="Sair" aria-label="Sair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </form>
+        </div>
         @endauth
         @guest
-        <x-button.link href="">Login</x-button.link>
+        <x-button.link href="{{ route('login') }}">Login</x-button.link>
         @endguest
     </div>
 </div>

@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Software\SoftwareResource\Pages;
 
 use App\Filament\Resources\Software\SoftwareResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\EditRecord;
 
 class EditSoftware extends EditRecord
@@ -12,8 +12,6 @@ class EditSoftware extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return Pages::editActions();
     }
 }

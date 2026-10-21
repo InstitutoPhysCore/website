@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Noticia\NoticiaResource\Pages;
 
 use App\Filament\Resources\Noticia\NoticiaResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\EditRecord;
 
 class EditNoticia extends EditRecord
@@ -12,8 +12,6 @@ class EditNoticia extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return Pages::editActions();
     }
 }

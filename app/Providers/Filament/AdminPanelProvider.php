@@ -25,6 +25,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('painel')
+            ->brandName('PhysCore')
             ->brandLogo(fn () => view('components.painel.logo'))
             ->path('painel')
             ->login()
@@ -39,8 +40,9 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                \App\Filament\Widgets\ConteudoStats::class,
             ])
+            ->navigationGroups(['Notícias', 'Artigos', 'Softwares', 'Cursos', 'Apostilas', 'Biblioteca', 'Equipe', 'Site'])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

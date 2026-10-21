@@ -3,55 +3,52 @@
 namespace App\Filament\Resources\Software;
 
 use App\Filament\Resources\Software\SoftwareResource\Pages;
-use App\Filament\Resources\Software\SoftwareResource\RelationManagers;
+use App\Filament\Support\Fields;
+use App\Filament\Support\ManagedTable;
+use App\Filament\Forms\AuthorSection;
 use App\Models\Software\Software;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SoftwareResource extends Resource
 {
     protected static ?string $model = Software::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Outros';
+    protected static ?string $modelLabel = 'software';
+    protected static ?string $pluralModelLabel = 'softwares';
+    protected static ?string $navigationGroup = 'Softwares';
+    protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
+    protected static ?int $navigationSort = 1;
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                //
-            ]);
+        return $form->schema([
+            Fields::title('name', 'Nome'),
+            Fields::desc(),
+            AuthorSection::make()->columnSpanFull(),
+            Fields::categoria(),
+            Forms\Components\TextInput::make('owner')->label('Dono do repositório (GitHub)')->required()->maxLength(255)->alphaDash(),
+            Forms\Components\TextInput::make('repo')->label('Nome do repositório (GitHub)')->required()->maxLength(255)->regex('/^[\w.\-]+$/'),
+            Fields::cover(),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
+        return ManagedTable::make($table, [
+            Fields::coverColumn(),
+            Tables\Columns\TextColumn::make('name')->label('Nome')->searchable()->sortable(),
+            Tables\Columns\TextColumn::make('categoria.name')->label('Categoria')->placeholder('Sem categoria')->sortable(),
+            Tables\Columns\TextColumn::make('repo_url')->label('Repositório')->url(fn ($record) => $record->repo_url, true)->limit(40),
+            Tables\Columns\TextColumn::make('author_name')->label('Autor'),
+            Fields::dateColumn(),
+        ], [
+            Tables\Filters\SelectFilter::make('categoria')->label('Categoria')->relationship('categoria', 'name')->preload(),
+        ]);
     }
 
     public static function getPages(): array

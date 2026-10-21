@@ -5,13 +5,12 @@ namespace App\Filament\Forms;
 use App\Models\Author\Author;
 use App\Models\Equipe\Membro;
 use App\Models\Equipe\Secretaria;
-use Filament\Forms\Components\Component;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 
 class AuthorSection {
     public static function make() {
-        return 
+        return
             Section::make('Autoria')->schema([
                 Select::make('author_type')
                     ->label('Tipo do Autor')
@@ -20,32 +19,27 @@ class AuthorSection {
                         1 => 'Secretaria',
                         2 => 'Autor externo'
                     ])
-                    ->reactive()  // Faz com que o campo reaja à mudança de valor
+                    ->default(0)
+                    ->required()
+                    ->live()  // Faz com que o campo reaja à mudança de valor
                     ->afterStateUpdated(function ($set) {
                         $set('author_id', null);
                     }),
-                    
+
                 Select::make('author_id')
                     ->label('Selecione o Autor')
+                    ->searchable()
                     ->options(function ($get) {
-                        $authorType = $get('author_type');
-
                         // Retorne os tipos de autores de acordo com a author_type
-                        switch($authorType) {
-                            case 0:
-                                return Membro::all()->pluck('name', 'id');
-                                break;
-                            case 1:
-                                return Secretaria::all()->pluck('name', 'id');
-                                break;
-                            case 2:
-                                return Author::all()->pluck('name', 'id');
-                                break;
+                        return match ((int) $get('author_type')) {
+                            0 => Membro::orderBy('name')->pluck('name', 'id'),
+                            1 => Secretaria::orderBy('name')->pluck('name', 'id'),
+                            2 => Author::orderBy('name')->pluck('name', 'id'),
+                            default => [],
                         };
                     })
-                    ->reactive()
                     ->required(),
-            ])
+            ])->columns(2)
         ;
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Curso\AulaResource\Pages;
 
 use App\Filament\Resources\Curso\AulaResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\EditRecord;
 
 class EditAula extends EditRecord
@@ -12,8 +12,6 @@ class EditAula extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return Pages::editActions();
     }
 }

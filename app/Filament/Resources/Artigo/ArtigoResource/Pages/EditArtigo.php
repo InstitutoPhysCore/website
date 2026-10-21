@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Artigo\ArtigoResource\Pages;
 
 use App\Filament\Resources\Artigo\ArtigoResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\EditRecord;
 
 class EditArtigo extends EditRecord
@@ -12,8 +12,6 @@ class EditArtigo extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return Pages::editActions();
     }
 }

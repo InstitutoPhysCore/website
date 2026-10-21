@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Noticia\Noticia;
-use Illuminate\Http\Request;
 
 class NoticiaController extends Controller
 {
     // Requisições de página
-    
+
     public function index() {
         return view('noticias.index');
     }

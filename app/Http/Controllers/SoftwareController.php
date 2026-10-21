@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Software\Categoria;
 use App\Models\Software\Software;
-use Illuminate\Http\Request;
 
 class SoftwareController extends Controller
 {
 
     public function index() {
-        $softwares = Software::all();
-        return view('softwares.index', ['softwares' => $softwares]);
+        return view('softwares.index');
     }
 
     public function show(Software $software) {
-        return view('softwares.show', ['software' => $software]);
+        return view('softwares.show', ['software' => $software->load('categoria')]);
     }
 
 }

@@ -17,7 +17,7 @@
                     <x-navbar.dropdown.item href="{{ route('page.quemsomos') }}">Quem somos?</x-navbar.dropdown.item>
                     <x-navbar.dropdown.item href="{{ route('page.objetivos') }}">Objetivos</x-navbar.dropdown.item>
                     <x-navbar.dropdown.item href="{{ route('equipe.index') }}">Equipe</x-navbar.dropdown.item>
-                    <x-navbar.dropdown.item href="">Diretoria</x-navbar.dropdown.item>
+                    <x-navbar.dropdown.item href="{{ route('equipe.page.diretoria') }}">Diretoria</x-navbar.dropdown.item>
                 </x-navbar.dropdown>
 
                 <!-- Link Artigos -->

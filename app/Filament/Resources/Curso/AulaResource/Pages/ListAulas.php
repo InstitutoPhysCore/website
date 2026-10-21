@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Curso\AulaResource\Pages;
 
 use App\Filament\Resources\Curso\AulaResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\ListRecords;
 
 class ListAulas extends ListRecords
@@ -12,8 +12,6 @@ class ListAulas extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+        return Pages::listActions();
     }
 }

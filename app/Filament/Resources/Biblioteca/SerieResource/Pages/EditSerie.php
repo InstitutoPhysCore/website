@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Biblioteca\SerieResource\Pages;
 
 use App\Filament\Resources\Biblioteca\SerieResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\EditRecord;
 
 class EditSerie extends EditRecord
@@ -12,8 +12,6 @@ class EditSerie extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return Pages::editActions();
     }
 }

@@ -1,59 +1,30 @@
-<x-page-layout>
-
-    <section class="bg-fixed" style="background-image: url({{ asset('images/cosmos.webp') }});">
-        <div class="mx-auto max-w-screen-xl px-6 py-32">
-            <div class="text-center">
-                <h1 class="text-5xl font-extrabold sm:text-7xl text-white"> Equipe </h1>
-                <p class="mt-4 sm:text-xl text-white"> Nossa Equipe </p>
-            </div>
-        </div>
-    </section>
+<x-page-layout title="Equipe">
+    <x-hero title="Equipe" subtitle="Nossa Equipe"/>
 
     <section id="diretoria" class="bg-zinc-900 text-gray-100">
         <div class="mx-auto max-w-screen-xl px-6 py-16 text-center">
             <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"> Procurando pela diretoria? </h2>
-            <x-button.link-white class="mt-8 text-black" href="/diretoria">Clique aqui!</x-button.link-white>
-            
+            <x-button.link-white class="mt-8 text-black" href="{{ route('equipe.page.diretoria') }}">Clique aqui!</x-button.link-white>
         </div>
     </section>
 
-    {{-- Carregar secretarias --}}
-    @foreach ($secretarias as $secretaria)
+    @forelse ($secretarias as $secretaria)
         <x-container.primary class="text-center">
-            <x-text.heading>{{ $secretaria['name'] }}</x-text.heading>
-            <x-text.desc>Membros</x-text.desc>
-        
-            <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-6 md:gap-8">
-                {{-- Carregar diretor da secretaria --}}
-                @if (!empty($secretaria->diretor->id))
-                <a href="/equipe/membro/{{ $secretaria->diretor->id }}"><blockquote class="transition hover:scale-105">
-                    <div class="flex justify-center">
-                        <div class="rounded-full h-32 w-32 bg-cover" style="background-image: url({{ asset('images/equipe/nicolasferreira.jpg') }});"></div>
-                    </div>
+            <x-text.heading>{{ $secretaria->name }}</x-text.heading>
+            <x-text.desc>{{ $secretaria->desc }}</x-text.desc>
 
-                    <div class="p-4 w-full text-center">
-                        <p class="text-lg font-bold">{{ $secretaria->diretor->name }}</p>
-                        <p class="mt-2">Diretor da Secretaria</p>
-                    </div>
-                </blockquote></a>
-                @endif
-
-                {{-- Carregar membros de cada secretaria ignorando o diretor --}}
-                @foreach ($secretaria->membros->whereNotIn('id', $secretaria->diretor->id) as $membro)
-                    <a href="/equipe/membro/{{ $membro->id }}"><blockquote class="transition hover:scale-105">
-                        <div class="flex justify-center">
-                            <div class="rounded-full h-32 w-32 bg-cover" style="background-image: url({{ asset('images/equipe/nicolasferreira.jpg') }});"></div>
-                        </div>
-
-                        <div class="p-4 w-full text-center">
-                            <p class="text-lg font-bold">{{ $membro->name }}</p>
-                            <p class="mt-2">{{ $membro->function }}</p>
-                        </div>
-                    </blockquote></a>
-
-                @endforeach
-            </div>
+            @php($membros = $secretaria->membros->sortBy(fn ($m) => [$m->id === $secretaria->diretor_id ? 0 : 1, $m->name]))
+            @if ($membros->isNotEmpty())
+                <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-6 md:gap-8">
+                    @foreach ($membros as $membro)
+                        <x-equipe.card :membro="$membro" :diretor="$membro->id === $secretaria->diretor_id"/>
+                    @endforeach
+                </div>
+            @else
+                <x-empty>Esta secretaria ainda não tem membros cadastrados.</x-empty>
+            @endif
         </x-container.primary>
-    @endforeach
-
+    @empty
+        <x-container.primary><x-empty>A equipe ainda não foi cadastrada.</x-empty></x-container.primary>
+    @endforelse
 </x-page-layout>

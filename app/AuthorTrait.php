@@ -3,37 +3,66 @@
 namespace App;
 
 use App\Models\Author\Author as ForeignAuthor;
-use Dom\Attr;
 use App\Models\Equipe\Membro;
 use App\Models\Equipe\Secretaria;
+use App\Support\AuthorUsage;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /*
-Retorna uma equipe, secretaria ou autor de foreign ID 'author_id' dependendo do integro 'author_type'
+Retorna uma equipe, secretaria ou autor de foreign ID 'author_id' dependendo do inteiro 'author_type'
+(0 = membro, 1 = secretaria, 2 = autor externo)
 */
 
 trait AuthorTrait {
 
     public function author(): BelongsTo {
 
-        switch($this->author_type) {
-            
-            // Caso para retornar um membro
-            case 0:
-                $author = $this->belongsTo(Membro::class, 'author_id');
-                break;
+        $class = match ((int) $this->author_type) {
+            AuthorUsage::SECRETARIA => Secretaria::class,
+            AuthorUsage::EXTERNO => ForeignAuthor::class,
+            default => Membro::class,
+        };
 
-            // Caso para retornar uma secretaria
-            case 1:
-                $author = $this->belongsTo(Secretaria::class, 'author_id');
-                break;
+        return $this->belongsTo($class, 'author_id');
+    }
 
-            // Caso para retornar um autor de fora
-            case 2:
-                $author = $this->belongsTo(ForeignAuthor::class, 'author_id');
-                break;
-        }
+    public function getAuthorNameAttribute(): ?string
+    {
+        return $this->author?->name;
+    }
 
-        return $author;
+    // Subtítulo exibido junto ao autor
+    public function getAuthorRoleAttribute(): ?string
+    {
+        $author = $this->author;
+
+        return match (true) {
+            $author instanceof Membro => $author->function,
+            $author instanceof Secretaria => 'Secretaria',
+            $author instanceof ForeignAuthor => 'Autor externo',
+            default => null,
+        };
+    }
+
+    public function getAuthorLinkAttribute(): ?string
+    {
+        $author = $this->author;
+
+        return match (true) {
+            $author instanceof Membro => route('equipe.show', $author),
+            $author instanceof ForeignAuthor => $author->link,
+            default => null,
+        };
+    }
+
+    public function getAuthorAvatarAttribute(): ?string
+    {
+        $author = $this->author;
+
+        return match (true) {
+            $author instanceof Membro => $author->avatar_src,
+            $author instanceof Secretaria, $author instanceof ForeignAuthor => $author->has_cover ? $author->cover_src : null,
+            default => null,
+        };
     }
 }

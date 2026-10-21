@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Apostila\ApostilaResource\Pages;
 
 use App\Filament\Resources\Apostila\ApostilaResource;
-use Filament\Actions;
+use App\Filament\Support\Pages;
 use Filament\Resources\Pages\ListRecords;
 
 class ListApostilas extends ListRecords
@@ -12,8 +12,6 @@ class ListApostilas extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+        return Pages::listActions();
     }
 }
